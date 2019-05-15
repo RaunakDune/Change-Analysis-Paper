@@ -1,0 +1,10 @@
+Name,Type,Width,Precision
+long,Real,24,15
+lat,Real,24,15
+id,Integer,9,0
+dnstyTh,Real,24,15
+avgScor,Real,24,15
+numTwts,Integer,9,0
+stdDev,Real,24,15
+batchNm,Integer,9,0
+geoData,String,80,0

@@ -1,0 +1,13 @@
+Name,Type,Width,Precision
+FIPS_ADMIN,String,4,0
+GMI_ADMIN,String,7,0
+ADMIN_NAME,String,42,0
+FIPS_CNTRY,String,2,0
+GMI_CNTRY,String,3,0
+CNTRY_NAME,String,40,0
+POP_ADMIN,Integer,9,0
+TYPE_ENG,String,26,0
+TYPE_LOC,String,50,0
+SQKM,Real,16,2
+SQMI,Real,16,2
+COLOR_MAP,String,2,0
