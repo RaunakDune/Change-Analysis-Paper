@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.3.26)  14 MAY 2019 22:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.3.26)  16 MAY 2019 14:59
 entering extended mode
 **"./Thesis 1 draft.tex"
 ("Thesis 1 draft.tex"
@@ -423,46 +423,37 @@ File: "Figure 4".png Graphic file (type png)
 Package pdftex.def Info: "Figure 4".png  used on input line 229.
 (pdftex.def)             Requested size: 252.0pt x 126.52344pt.
 [3 <./Figure 4.png>]
-<"Figure 5".png, id=26, 435.5472pt x 471.6822pt>
-File: "Figure 5".png Graphic file (type png)
-<use "Figure 5".png>
-Package pdftex.def Info: "Figure 5".png  used on input line 259.
-(pdftex.def)             Requested size: 252.0pt x 272.91371pt.
-<"Figure 6".png, id=28, 469.4265pt x 362.664pt>
+<"Figure 6".png, id=26, 469.4265pt x 362.664pt>
 File: "Figure 6".png Graphic file (type png)
 <use "Figure 6".png>
 Package pdftex.def Info: "Figure 6".png  used on input line 267.
 (pdftex.def)             Requested size: 252.0pt x 194.68462pt.
-<"Figure 7".png, id=29, 485.29305pt x 666.3294pt>
+<"Figure 7".png, id=27, 485.29305pt x 666.3294pt>
 File: "Figure 7".png Graphic file (type png)
 <use "Figure 7".png>
 Package pdftex.def Info: "Figure 7".png  used on input line 277.
 (pdftex.def)             Requested size: 252.0pt x 346.00525pt.
-
-Underfull \vbox (badness 1997) has occurred while \output is active []
-
-<"Figure 8".png, id=30, 614.295pt x 794.97pt>
+<"Figure 8".png, id=29, 614.295pt x 794.97pt>
 File: "Figure 8".png Graphic file (type png)
 <use "Figure 8".png>
 Package pdftex.def Info: "Figure 8".png  used on input line 285.
 (pdftex.def)             Requested size: 252.0pt x 326.12177pt.
- [4 <./Figure 5.png> <./Figure 6.png> <./Figure 7.png>]
-<"Figure 9".png, id=36, 614.295pt x 794.97pt>
+<"Figure 9".png, id=30, 614.295pt x 794.97pt>
 File: "Figure 9".png Graphic file (type png)
 <use "Figure 9".png>
 Package pdftex.def Info: "Figure 9".png  used on input line 297.
 (pdftex.def)             Requested size: 252.0pt x 326.12177pt.
-<"Figure 10".png, id=37, 614.295pt x 794.97pt>
+<"Figure 10".png, id=31, 614.295pt x 794.97pt>
 File: "Figure 10".png Graphic file (type png)
 <use "Figure 10".png>
 Package pdftex.def Info: "Figure 10".png  used on input line 303.
 (pdftex.def)             Requested size: 252.0pt x 326.12177pt.
-<"Figure 11".png, id=38, 614.295pt x 794.97pt>
+<"Figure 11".png, id=32, 614.295pt x 794.97pt>
 File: "Figure 11".png Graphic file (type png)
 <use "Figure 11".png>
 Package pdftex.def Info: "Figure 11".png  used on input line 311.
 (pdftex.def)             Requested size: 252.0pt x 326.12177pt.
- [5 <./Figure 8.png (PNG copy)> <./Figure 9.png (PNG copy)>]
+ [4 <./Figure 6.png> <./Figure 7.png>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -474,17 +465,17 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[6 <./Figure 10.png (PNG copy)> <./Figure 11.png (PNG copy)>]
-("Thesis 1 draft.aux")
+[5 <./Figure 8.png (PNG copy)> <./Figure 9.png (PNG copy)>] [6 <./Figure 10.png
+ (PNG copy)> <./Figure 11.png (PNG copy)>] ("Thesis 1 draft.aux")
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4867 strings out of 492945
- 70479 string characters out of 3135481
+ 4862 strings out of 492945
+ 70390 string characters out of 3135481
  165988 words of memory out of 3000000
- 8699 multiletter control sequences out of 15000+200000
+ 8695 multiletter control sequences out of 15000+200000
  40772 words of font info for 83 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,13n,32p,1467b,1583s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -499,9 +490,9 @@ c/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
 KTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/ut
 mri8a.pfb>
-Output written on "Thesis 1 draft.pdf" (6 pages, 3250095 bytes).
+Output written on "Thesis 1 draft.pdf" (6 pages, 3007601 bytes).
 PDF statistics:
- 80 PDF objects out of 1000 (max. 8388607)
+ 78 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

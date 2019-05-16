@@ -11,7 +11,7 @@
 \usepackage{listings}
 
 \begin{document}
-\title{Spatiotemporal Change Detection and Analysis in Remote Sensing Imagery}
+\title{Spatiotemporal Change Detection and Analysis in Vector Based Map Imagery}
 
 \author{\IEEEauthorblockN{Raunak Sarbajna\IEEEauthorrefmark{1},
 Dr. Sujing Wang\IEEEauthorrefmark{2}}
@@ -245,21 +245,21 @@ To outline the polygon, we examine several different methods:
 
 Our approach then combined several techniques:
 \begin{enumerate}
-	\item \textbf{Data Pre Processing} This involves curation of datasets with obvious georeferencing errors
-	\item \textbf{Parametrization of polygons} Calculate shape and area parameters for each individual polygon with each map later
+	\item \textbf{Data Pre Processing} This involves curation of datasets with obvious georeferencing errors. This would preferable be done by minimizing the root mean square error.
+	\item \textbf{Parametrization of polygons} Calculate shape and area parameters for each individual polygon with each map layer.s
 	\item \textbf{Analysis through Symmetrical Difference} Extract features common to either of the layers
 	\item \textbf{Polygon Union Computation} Union sequential layers to contain the original areas of both layers and the areas of overlapping polygons
 	\item \textbf{Polygon Erase Operation} Erase larger polygons from smaller (or vice-versa) for detection of growth/shrinking
 	\item \textbf{Polygon Intersection/Invert} Selecting and then labelling the changed regions
 \end{enumerate}
 
-This procedure is outlined in Figure \ref{Figure 5}
-
-\begin{figure}[ht]
-\centerline{\includegraphics[width=\linewidth]{"Figure 5".png}}
-\caption{Polygons generated from Sentiment analysis}
-\label{Figure 5}
-\end{figure}
+%This procedure is outlined in Figure \ref{Figure 5}
+%
+%\begin{figure}[ht]
+%\centerline{\includegraphics[width=\linewidth]{"Figure 5".png}}
+%\caption{Polygons generated from Sentiment analysis}
+%\label{Figure 5}
+%\end{figure}
 
 Our original data source for the drought sets were defined by the USDA as seen in Figure \ref{Figure 6}.
 
