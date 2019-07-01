@@ -11,10 +11,10 @@
 \usepackage{listings}
 
 \begin{document}
-\title{Spatiotemporal Change Detection and Analysis in Vector Based Map Imagery}
+\title{A Data Mining Framework for Analysing Geospatial-Temporal Data}
 
 \author{\IEEEauthorblockN{Raunak Sarbajna\IEEEauthorrefmark{1},
-Dr. Sujing Wang\IEEEauthorrefmark{2}}
+Sujing Wang\IEEEauthorrefmark{2}}
 \IEEEauthorblockA{Department of Computer Science,
 Lamar University\\
 Beaumont\\
@@ -23,11 +23,11 @@ Email: \IEEEauthorrefmark{1}rsarbajna@lamar.edu,
 \maketitle
 
 \begin{abstract}
-The purpose of this study is to detect spatiotemporal changes within sequential maps. Change analysis models are essential in understanding larger patterns and trends in multifaceted, time-series geographic data. All polygons under consideration are closed. spatial, georeferenced sets. The change detection is done through three primary set operations: union, intersection and erase. We initially generate polygons, by creating convex hulls from point data. Then, we calculate area of each individual polygon within each map layer. We then execute a union operation and calculate area. The union layer now contains the original areas of both layers and the areas of the overlapping polygons - we now need to query them properly to prepare for calculating the change percentage and tabulating intersection. To outline the polygon, we examine several different methods: (1) we find features common to either of the layers but not both, essentially performing a symmetrical difference, (2) we erase the larger of the polygons from the smaller, thus retaining only the growth, and do vice-verse for shrinking, (3) we perform simple intersection and then invert selection to get changed regions. All operations are performed using the ArcGIS/ArcPy toolkit. Our sample data for this process were shapefiles of drought intensity and impact from the North American Drought Portal and Twitter emotion measurements created through sentiment analysis.
+The purpose of this study is to detect spatiotemporal changes within sequential maps and generate automated storytelling features. Change analysis models are essential in understanding larger patterns and trends in multifaceted, time-series geographic data. All polygons under consideration are closed. spatial, georeferenced sets. The change detection is done through three primary set operations: union, intersection and erase. We initially generate polygons, by creating convex hulls from point data. Then, we calculate area of each individual polygon within each map layer. We then execute a union operation and calculate area. The union layer now contains the original areas of both layers and the areas of the overlapping polygons - we now need to query them properly to prepare for calculating the change percentage and tabulating intersection. To outline the polygon, we examine several different methods: (1) we find features common to either of the layers but not both, essentially performing a symmetrical difference, (2) we erase the larger of the polygons from the smaller, thus retaining only the growth, and do vice-verse for shrinking, (3) we perform simple intersection and then invert selection to get changed regions. We then use fitness and interesting-ness functions to determine whether or not a particular statistic is notable enough. All operations are performed using the ArcGIS/ArcPy toolkit. Our sample data for this process were shapefiles of drought intensity and impact from the North American Drought Portal and Twitter emotion spatial cluster measurements created through sentiment analysis.
 \end{abstract}
 
 \begin{IEEEkeywords}
-geoinformatics, change analysis, data science, data analytics, sentimenet analysis
+geoinformatics, change analysis, data science, data mining, sentiment analysis, storytelling
 \end{IEEEkeywords}
 
 
@@ -46,7 +46,10 @@ Our approach provides a change monitoring framework which creates a change graph
 
 There are two different datasets under consideration here. First is the Spatiotemporal Drought Datasets from the North American Portal: https://www1.ncdc.noaa.gov/pub/data/nidis/shapefiles/.
 
-Second is user generated maps of sentiment analysis performed on twitter data, which have been geolocated to a reasonable accuracy level. This second data source required a lot of preprocessing which has been explained in section 4.2
+The dataset was constructed using "Geotagged Twitter posts from the United States" [9] and the tool used for creating the emotion clusters was the K2 framework [7]. The raw dataset contains the timestamp, longitude, latitude and the text of each tweet, which are then processed and tokenized.
+
+According to K2, the best package for the emotion score was the Valence Aware Dictionary and Sentiment Reasoner (VADER) system [10], whose analyser parses the tokenized text and checks within a lexicon for words with strong sentiment. The final score is created from the weighted average of all sentimental words and lies within the range [-1, 1], as is required for our Aconcagua implementation.
+
 The spatial reference for the Drought shapefiles can be seen in figure 1, and for the twitter data can be seen in figure 2. 
 
 \begin{figure}[ht]
@@ -118,6 +121,27 @@ A high-performance remote sensing method called Comprehensive Change Detection M
 
 \section{Methodology}
 
+\subsection{Emotion Spatial Clusters from Twitter }
+
+We are implementing and improving upon the change analysis framework called Aconcagua [6]. The system expects an input of emotion polygons annotated with emotion assessment scores, with +1 representing a very high positive emotion and -1 representing a very high negative emotion. While this method does lead to inconsistencies in locations due to georeferencing inaccuracies, we find that the 8 ~ 10m precision [8] works well within city limits.
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=\linewidth]{"Figure 13".png}}
+\caption{The K2 Framework}
+\label{Figure 13}
+\end{figure}
+
+
+There are several ways of using the numerous point data we have obtained from this step into an actual polygonal map: 
+
+\begin{enumerate}
+
+\item Creating closed contour lines for contour lines that lie on the boundary of the observation area.
+\item Creating a convex hull from points with similar scores.
+\end{enumerate}
+
+We elaborate on creating convex hulls in the following section.
+
 \subsection{Point Data Sources}
 
 Our initial approach to this problem was to store all shapefiles in a postgres database with a GIS addon and perform operations in python. We used psycopg2 and osgeo libraries to import, process and visualize maps. However, this lead to many problems with interconversions between georeferencing schemes, while converting from WKT geometry to PostGIS geography.
@@ -132,7 +156,6 @@ We start with basic point data, which contains latitude/longitude, along with me
 
 As our framework relies on using polygonal data, we cannot use this. So we begin by creating a convex hull of points and inserting it into a new table, while preserving related meta-data. Due to engine limitations, we need to be careful and insert only those convex hulls that are polygons specifically, not points or lines.
 
-Other pre-academy preparations included:
 \begin{enumerate}
 	\item Our query for this purpose was:
 \begin{lstlisting}
@@ -224,7 +247,6 @@ j2.centroid,
 
 A sample of what these generated maps look like can be found in Figure \ref{Figure 4}
 
-% Insert Figure here 2018 6th-Grade Females Coding/Programming Academy Participant Diversity 
 \begin{figure}[ht]
 \centerline{\includegraphics[width=\linewidth]{"Figure 4".png}}
 \caption{Polygons generated from Sentiment analysis}
@@ -245,7 +267,7 @@ To outline the polygon, we examine several different methods:
 
 Our approach then combined several techniques:
 \begin{enumerate}
-	\item \textbf{Data Pre Processing} This involves curation of datasets with obvious georeferencing errors. This would preferable be done by minimizing the root mean square error.
+	\item \textbf{Data Pre Processing} This involves curation of datasets with obvious georeferencing errors. This would preferable be done by minimizing the root mean square error. We initially.
 	\item \textbf{Parametrization of polygons} Calculate shape and area parameters for each individual polygon with each map layer.s
 	\item \textbf{Analysis through Symmetrical Difference} Extract features common to either of the layers
 	\item \textbf{Polygon Union Computation} Union sequential layers to contain the original areas of both layers and the areas of overlapping polygons
@@ -268,6 +290,24 @@ Our original data source for the drought sets were defined by the USDA as seen i
 \caption{United Sates Drought Monitor Data}
 \label{Figure 6}
 \end{figure}
+
+\section{Change Storytelling}
+
+In order to able to tell a coherent spatio-temporal data story from the change analysis output, we need to be able to pick out resultant change polygons that have seem to have significant impact on the dataset as a whole. We propose using an interestingness function to look for these.[11]
+
+We choose a set of change polygons SCP. These not only contains those objects but also their associated characteristics. For example, a SCP could contain a set of spatial clusters with polygon, their average drought score, total area, centroid coordinates and other summaries for each spatial cluster. We define the function as:
+\[f:SCP\ \rightarrow\ \left[0\right.,\left.\infty\right)\]
+
+We define a threshold $\omega$, which ensures that a narrative will only be generated an an object $p \in SCP$ such that $f(p) \ge \omega$. Example parameters for $\omega$ include  
+
+\begin{itemize}
+\item $Max\left(\frac{area\left(Polygon\ P_i\right)}{\sum_{1}^{i}area\left(Polygon\ P_i\right)}\right)$
+\item $Max\left(Percentage\ Change\ in\ Polygon\right)$
+\item Largest shift in polygon centroids
+\end{itemize}
+
+The threshold parameters need to be finely tuned so as to not exclude those polygons who fall through exceptions. Once we have a suitable selection of polygons and have chose a threshold value, we can create a summary narrative. 
+
 
 \section{Results}
 
@@ -315,7 +355,7 @@ The results from the analysing the twitter emotion maps can be seen in Figure \r
 
 \section{Conclusion}
 
-Our experimental studies show that the change detection and analysis framework can successfully detect changes in both polygonal and point-set land use spatiotemporal datasets. 
+Our experimental studies show that our change detection and analysis framework can successfully detect changes in both polygonal and point-set land use spatiotemporal datasets. 
  
 
 \section{Future Work}
@@ -323,7 +363,7 @@ There is a lot work left in dealing with irregularly shaped convex polygons that
 
 We are also looking towards consolidating and extending some of the change predicates, especially trying to tune them for fine changes.
 
-We will work on the creating change summaries and stories from the data in future.
+We will work on the creating change summaries and stories, as detailed in Section IV,  from the data in future.
 
 \section*{Acknowledgment}
 
@@ -335,11 +375,19 @@ The authors wish to thank Dr. Sujing Wang for her advice and critical guidance d
 \begin{thebibliography}{12}
 
   
-\bibitem {} J. Im and J. Jensen. 2005. A change detection model based on neighborhood correlation image analysis and decision tree classification. Remote Sensing of Environment 99, 3 (2005), 326–340. DOI:http://dx.doi.org/10.1016/j.rse.2005.09.008 
-\bibitem {} Suming Jin, Limin Yang, Patrick Danielson, Collin Homer, Joyce Fry, and George Xian. 2013. A comprehensive change detection method for updating the National Land Cover Database to circa 2011. Remote Sensing of Environment 132 (May 2013), 159–175. DOI:http://dx.doi.org/10.1016/j.rse.2013.01.012 
-\bibitem {} D. Lu, P. Mausel, E. Brondízio, and E. Moran. 2004. Change detection techniques. International Journal of Remote Sensing 25, 12 (June 2004), 2365–2401. DOI:http://dx.doi.org/10.1080/0143116031000139863 
-\bibitem {} Merrill K. Ridd and Jiajun Liu. 1998. A Comparison of Four Algorithms for Change Detection in an Urban Environment. Remote Sensing of Environment 63, 2 (1998), 95–100. DOI:http://dx.doi.org/10.1016/s0034-4257(97)00112-0 
-\bibitem {} S. Minu and Amba Shetty. 2015. A Comparative Study of Image Change Detection Algorithms in MATLAB. Aquatic Procedia 4 (March 2015), 1366–1373. DOI:http://dx.doi.org/10.1016/j.aqpro.2015.02.177 
+\bibitem {1} J. Im and J. Jensen. 2005. A change detection model based on neighborhood correlation image analysis and decision tree classification. Remote Sensing of Environment 99, 3 (2005), 326–340. DOI:http://dx.doi.org/10.1016/j.rse.2005.09.008 
+\bibitem {2} Suming Jin, Limin Yang, Patrick Danielson, Collin Homer, Joyce Fry, and George Xian. 2013. A comprehensive change detection method for updating the National Land Cover Database to circa 2011. Remote Sensing of Environment 132 (May 2013), 159–175. DOI:http://dx.doi.org/10.1016/j.rse.2013.01.012 
+\bibitem {3} D. Lu, P. Mausel, E. Brondízio, and E. Moran. 2004. Change detection techniques. International Journal of Remote Sensing 25, 12 (June 2004), 2365–2401. DOI:http://dx.doi.org/10.1080/0143116031000139863 
+\bibitem {4} Merrill K. Ridd and Jiajun Liu. 1998. A Comparison of Four Algorithms for Change Detection in an Urban Environment. Remote Sensing of Environment 63, 2 (1998), 95–100. DOI:http://dx.doi.org/10.1016/s0034-4257(97)00112-0 
+\bibitem {5} S. Minu and Amba Shetty. 2015. A Comparative Study of Image Change Detection Algorithms in MATLAB. Aquatic Procedia 4 (March 2015), 1366–1373. DOI:http://dx.doi.org/10.1016/j.aqpro.2015.02.177 
+\bibitem {6} K. Elgarroussi, S. Wang, R. Banerjee, and C. F. Eick, “Aconcagua: A Novel Spatiotemporal Emotion Change Analysis Framework,” in Proceedings of the 2Nd ACM SIGSPATIAL International Workshop on AI for Geographic Knowledge Discovery, New York, NY, USA, 2018, pp. 54–61.
+\bibitem {7} R. Banerjee, K. Elgarroussi, S. Wang, A. Talari, Y. Zhang, and C. F. Eick, “K2: A Novel Data Analysis Framework to Understand US Emotions in Space and Time,” Int. J. Semantic Computing, vol. 13, no. 01, pp. 111–133, Mar. 2019.
+\bibitem {8} Geomenke, “How Accurate is the GPS on my Smart Phone? (Part 2),” Community Health Maps, 07-Jul-2014. .
+\bibitem {9} W. Z.-M.-L. I. for the S. S. Person, “Geotagged Twitter posts from the United States: A tweet collection to investigate representativeness,” Jan. 2016.
+\bibitem {10} C. J. Hutto, VADER Sentiment Analysis. VADER (Valence Aware Dictionary and sEntiment Reasoner) is a lexicon and rule-based sentiment analysis tool that is specifically attuned to sentiments expressed in social .. 2019.
+\bibitem {11} X. Huang, A. An, and N. Cercone, “Comparison of Interestingness Functions for Learning Web Usage Patterns,” in Proceedings of the Eleventh International Conference on Information and Knowledge Management, New York, NY, USA, 2002, pp. 617–620.
+
+
 
 
 
