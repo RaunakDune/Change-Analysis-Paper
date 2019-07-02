@@ -129,6 +129,32 @@ The change detection model using Neighborhood Correlation Image (NCI) logic work
 
 A high-performance remote sensing method called Comprehensive Change Detection Method (CCDM) integrates spectral-based change detection algorithms and a novel change model called Zone, which extracts change information from two Landsat image pairs [2]. This can be easily modified to work on the Twitter-based emotional grading maps. This method is simple, easy to operate, widely applicable, and capable of capturing anthropogenic changes like our area of interest.
 
+Storytelling techniques are effective summarization method to succinctly organize extensive information. Traditional storytelling has been mostly successful on news articles, blogs, as well as structured databases. However, traditional storytelling techniques tend to perform poorly on social media content, such as Twitter, where text lacks proper form and function [11]. Moreover, the ability to support dynamic storylines as they evolve is critical to modeling fast moving social media streams such as Twitter. Dos Santos et al. [21] introduced a set of methods to automatically derive stories over linked entities in tweets. They model a story as a graph of entities propagating through spatial regions in a temporal sequence, and controls search space complexity by suggesting regions of exploration. They developed algorithms to conduct storytelling to model tweets over space and time, reasoning over spatio-temporal features, and devise spatio-temporal storylines based on connectivity strength.
+
+Kumar et al. [14] proposed an efficient storytelling implementation that embeds the CARTwheels [15] redescription mining algorithm which utilizes induced classification trees to model redescriptions in an A* search procedure, using the CARTwheels to supply next move operators on search branches to the A* search procedure. Vocht et al. [15] proposed the implementation of an optimized algorithm controlling the pathfinding process to obtain more homogeneous search domain and retrieve more links between adjacent hops in each path to improve the semantic relatedness of concepts mentioned in a story by increasing the relevance of links between nodes through additional domain delineation and refinement steps. Chen et al. [20] proposed a multimodal imitation learning via generative adversarial networks (MIL-GAN) method to directly model users' interests as reflected by various data by imitating users' demonstrated storylines. MIL-GAN model is designed to learn the reward patterns given user-provided storylines and then applies the learned policy to unseen data. Santos et al. [21] combined storytelling and Spatio-logical Inference (SLI) to generate rules of interaction among entities and measure how well they forecast a real-world event. 
+
+
+
+Hossain et al [13] introduced Google Fusion Tables(GFT) that offers collaborative data management in the cloud for data scientists to enable the integration of increasingly complex geospatial data to support storytelling. The paper focused on introduction of overview of map processing in GFT, the architecture overview of GFT, and how to scale to large datasets, massive and complex polygon datasets. GFT provides a useful tool for storytelling through interactive maps. 
+
+
+
+Kumar et al. [14] formulated storytelling as a generalization of redescription mining. Stories are defined as chains of redescriptions. They proposed an efficient storytelling algorithm as A* search around the outputs of a CARTwhells redescription mining algorithm. The efficiency and scalability of the proposed algorithm were evaluated by three application case studies: word overlaps in large English dictionaries, exploring connections between gene sets in a bioinformatics data set, and relating publications in the PubMed index of abstracts. 
+
+
+
+Hossain et al. [19] proposed an approach to automatically construct stories between entities in large document collections that can help from directed chains of relationships, with support for co-referencing, evidence marshaling, and imposing syntactic constrains on the story generation process. A new optimization techniques based on concept lattice mining is used to rapidly construct stories on massive datasets. 
+
+
+
+Chen et al. [20] introduced an approach, multimodal imitation learning via generative adversarial networks (MIL-GAN) for generating storyline on unseen data. It can directly model users’ interests as reflected by various data. This approach is used to learn the reward patterns given user-provided storylines and then applies the learned policy to unseen data.   
+
+
+
+
+Santos et al. [21] introduced three methods of association analysis, Distance-based Byesian Inference, Spatial Association Index, and Spatio-logical inference, to capture relatedness among real-world events in high data volumes, and to model similar events that are described disparately under high data variability. It takes as input a set of geotemporally-encoded text streams about violent events called “storylines”. This study demonstrated that spatio-temporal storytelling is able to capture important associations among violent events reported in social media and traditional datasets. 
+
+
 \section{Methodology}
 
 \subsection{Emotion Spatial Clusters from Twitter }
@@ -396,10 +422,19 @@ The authors wish to thank Dr. Sujing Wang for her advice and critical guidance d
 \bibitem {9} W. Z.-M.-L. I. for the S. S. Person, “Geotagged Twitter posts from the United States: A tweet collection to investigate representativeness,” Jan. 2016.
 \bibitem {10} C. J. Hutto, VADER Sentiment Analysis. VADER (Valence Aware Dictionary and sEntiment Reasoner) is a lexicon and rule-based sentiment analysis tool that is specifically attuned to sentiments expressed in social .. 2019.
 \bibitem {11} X. Huang, A. An, and N. Cercone, “Comparison of Interestingness Functions for Learning Web Usage Patterns,” in Proceedings of the Eleventh International Conference on Information and Knowledge Management, New York, NY, USA, 2002, pp. 617–620.
-
-
-
-
+\bibitem {} W. Wang, Lu Chen, K. Thirunarayan, and Amit P. Sheth, Harnessing Twitter "Big Data" for Automatic Emotion Identifcation, in Proc. of the IEEE 2012 International Conference on Privacy, Security, Risk and Trust and 2012 International Conference on Social Computing.
+\bibitem {} R. F. Dos Santos, S. Shah, F. Chen, A. Boedi-hardjo, P. Butler, C.T. Lu and N. Ramakrishnan, "Spatiotemporal storytelling on twitter", Virginia Tech Computer Science Technical Report, 2015, [online] Available: http://vtechworks.lib.vt.edu/handle/10919/24701.
+[20] D. Kumar, N. Ramakrishnan, R. F. Helm and M. Potts, Algorithm for storytelling, in IEEE Transactions on Knowledge and Data Engineering, 2008, Volume 20 Issue
+6, pp. 736-751.
+\bibitem {} N. Ramakrishnan, D. Kumar, B. Mishra, M. Potts and R. R. Helm, Turning CARTwheels: an alternating algorithm for mining redescriptions, in Knowledge Discovery and Data Mining, 2004, pp. 266-275.
+\bibitem {} L. D. Vocht, C. Beecks, R. Verborgh, T. Seidl, E. Mannens and Rik Van De Walle, Improving Semantic Relatedness in Paths for Storytelling with Linked Data on the Web, in Revised Selected Papers of the ESWC 2015 Satellite Events on The Semantic Web: ESWC 2015 Satellite Events, May 31-June 04, 2015.
+\bibitem {} Z. Chen, X. Zhang, A. P. Boedihardjo, J. Dai, Chang-Tien Lu, Multimodal storytelling via generative adversarial imitation learning, in Proceedings of the 26th International Joint Conference on Artifcial Intelligence, August 19-25, 2017, Melbourne, Australia.
+\bibitem {} R. D. Santos, S. Shah, F. Chen, A. Boedihardjo, Chang-Tien Lu, N. Ramakrishnan, Forecasting location-based events with spatio-temporal storytelling, in Proceedings of the 7th ACM SIGSPATIAL International Workshop on Location-Based Social Networks, pp. 13-22, November 04-04, 2014, Dallas/Fort Worth, Texas.
+\bibitem {} Jayant Madhavan, Sreeram Balakrishnan, Kathryn Brisbin, Hector Gonzalez, Nitin Gupta,Alon Halevy, Karen Jacqmin-Adams, Heidi Lam, Anno Langen, Hongrae Lee,Rod McChesney, Rebecca Shapley, Warren Shen, “Big Data Storytelling through Interactive Maps”
+\bibitem {} M. Shahriar Hossain1, Patrick Butler1, Arnold P. Boedihardjo2, Naren Ramakrishnan, Storytelling in Entity Networks to Support Intelligence Analysts, KDD '12 Proceedings of the 18th ACM SIGKDD international conference on Knowledge discovery and data mining, Pages 1375-1383 ,Beijing, China , August 12 - 16, 2012
+\bibitem {} Zhiqian Chen , Xuchao Zhang , Arnold P. Boedihardjo , Jing Dai , Chang-Tien Lu, Multimodal storytelling via generative adversarial imitation learning, Proceedings of the 26th International Joint Conference on Artificial Intelligence, August 19-25, 2017, Melbourne, Australia 
+\bibitem {} Raimundo F. Dos Santos, Jr. , Arnold Boedihardjo , Sumit Shah , Feng Chen , Chang-Tien Lu , Naren Ramakrishnan, The big data of violent events: algorithms for association analysis using spatio-temporal storytelling, Geoinformatica, v.20 n.4, p.879-921, October 2016
+\bibitem {} Deept Kumar, Naren Ramakrishnan, Richard F. Helm, and Malcolm Potts. 2008. Algorithms for Storytelling. IEEE TKDE20, 6 (2 2008), 736–751.DOI:http://dx.doi.org/10.1145/1188913.1188915
 
 \end{thebibliography}
 \end{document}
