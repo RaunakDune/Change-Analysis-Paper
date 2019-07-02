@@ -12,22 +12,32 @@
 
 \begin{document}
 \title{A Data Mining Framework for Analysing Geospatial-Temporal Data}
-
-\author{\IEEEauthorblockN{Raunak Sarbajna\IEEEauthorrefmark{1},
-Sujing Wang\IEEEauthorrefmark{2}}
-\IEEEauthorblockA{Department of Computer Science,
+\author{\IEEEauthorblockN{Raunak Sarbajna}
+\IEEEauthorblockA{Department of Computer Science\\
 Lamar University\\
-Beaumont\\
-Email: \IEEEauthorrefmark{1}rsarbajna@lamar.edu,
-\IEEEauthorrefmark{2}swang3@lamar.edu}}
+Beaumont, Texas, USA\\
+Email: rsarbajna@lamar.edu}
+\and
+\IEEEauthorblockN{Sujing Wang}
+\IEEEauthorblockA{Department of Computer Science\\
+Lamar University\\
+Beaumont, Texas, USA\\
+Email: sujing.wang@lamar.edu}}
+%\author{\IEEEauthorblockN{Raunak Sarbajna\IEEEauthorrefmark{1},
+%Sujing Wang\IEEEauthorrefmark{2}}
+%\IEEEauthorblockA{Department of Computer Science,
+%Lamar University\\
+%Beaumont\\
+%Email: \IEEEauthorrefmark{1}rsarbajna@lamar.edu,
+%\IEEEauthorrefmark{2}swang3@lamar.edu}}
 \maketitle
 
 \begin{abstract}
-The purpose of this study is to detect spatiotemporal changes within sequential maps and generate automated storytelling features. Change analysis models are essential in understanding larger patterns and trends in multifaceted, time-series geographic data. All polygons under consideration are closed. spatial, georeferenced sets. The change detection is done through three primary set operations: union, intersection and erase. We initially generate polygons, by creating convex hulls from point data. Then, we calculate area of each individual polygon within each map layer. We then execute a union operation and calculate area. The union layer now contains the original areas of both layers and the areas of the overlapping polygons - we now need to query them properly to prepare for calculating the change percentage and tabulating intersection. To outline the polygon, we examine several different methods: (1) we find features common to either of the layers but not both, essentially performing a symmetrical difference, (2) we erase the larger of the polygons from the smaller, thus retaining only the growth, and do vice-verse for shrinking, (3) we perform simple intersection and then invert selection to get changed regions. We then use fitness and interesting-ness functions to determine whether or not a particular statistic is notable enough. All operations are performed using the ArcGIS/ArcPy toolkit. Our sample data for this process were shapefiles of drought intensity and impact from the North American Drought Portal and Twitter emotion spatial cluster measurements created through sentiment analysis.
+In this paper, we introduce a new data mining framework for analyzing spatio-tempal data. It introduces polygon based change analysis techniques and automatic storytelling methodogy for spatio-temporal data. Change analysis and automatic storytelling are essential techniques in understanding larger patterns and trends in multifaceted, timeseries geographic data. We evaluate the effectiveness of our framework through case studies involving Twitter emotion  data and North American Drought data. The experimental results show that our framework can discover interesting patterns and useful information from spatial-temporal data.
 \end{abstract}
 
 \begin{IEEEkeywords}
-geoinformatics, change analysis, data science, data mining, sentiment analysis, storytelling
+change analysis, storytelling, sentiment analysis, polygon, spatio-temporal data.
 \end{IEEEkeywords}
 
 
