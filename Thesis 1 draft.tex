@@ -55,8 +55,12 @@ Our approach provides a change monitoring framework which creates a change graph
 Our research contributions are summarized as follows:
 
 \begin{enumerate}
- \item A change analysis project
+ \item A novel change analysis framework that works on vectored polygonal datasets
+ \item New change predicates that are data agnostic and can work on a large spectrum of data
+ \item A new measure of interestingness to aid in generating automated storytelling based the change analysis results
 \end{enumerate}
+
+The rest if the paper is structured as follows. Section 2 reviews previous literature on the subject and discusses related work.  Section 3 introduces our data mining framework. Section 4 lays out the methodology in detail. Section 5 evaluates the framework with case studies on drought datasets pre and post Harvey, pre and post California wildfires and twitter emotion polygons. Section 6 provides a conclusion and discusses potential future expansions to the framework.
 
 
 \section{Related Work}
@@ -169,8 +173,8 @@ COLOR\_MAP  & String  & 2     & 0
 We are implementing and improving upon the change analysis framework called Aconcagua [6]. The system expects an input of emotion polygons annotated with emotion assessment scores, with +1 representing a very high positive emotion and -1 representing a very high negative emotion. While this method does lead to inconsistencies in locations due to georeferencing inaccuracies, we find that the 8 ~ 10m precision [8] works well within city limits.
 
 \begin{figure}[ht]
-\centerline{\includegraphics[width=\linewidth]{"Figure 13".png}}
-\caption{The K2 Framework}
+\centerline{\includegraphics[width=\linewidth]{"Figure 14".png}}
+\caption{The Framework Architecture}
 \label{Figure 13}
 \end{figure}
 
@@ -352,7 +356,7 @@ We define a threshold $\omega$, which ensures that a narrative will only be gene
 The threshold parameters need to be finely tuned so as to not exclude those polygons who fall through exceptions. Once we have a suitable selection of polygons and have chose a threshold value, we can create a summary narrative. 
 
 
-\section{Results}
+\section{Case Study}
 
 The original polygons for the drought datasets, before our analysis was started, can be found in Figure \ref{Figure 7}
 
@@ -396,12 +400,10 @@ The results from the analysing the twitter emotion maps can be seen in Figure \r
 \label{Figure 11}
 \end{figure}
 
-\section{Conclusion}
+\section{Conclusion and Future Work}
 
 Our experimental studies show that our change detection and analysis framework can successfully detect changes in both polygonal and point-set land use spatiotemporal datasets. 
  
-
-\section{Future Work}
 There is a lot work left in dealing with irregularly shaped convex polygons that appear in poorly georeferenced real world data. We believe this is because the sensitivity of the geographic operations in PostGIS or ArcGIS. We are currently working on extending our framework to deal with edge cases like those.
 
 We are also looking towards consolidating and extending some of the change predicates, especially trying to tune them for fine changes.
@@ -410,8 +412,7 @@ We will work on the creating change summaries and stories, as detailed in Sectio
 
 \section*{Acknowledgment}
 
-
-The authors wish to thank Dr. Sujing Wang for her advice and critical guidance during bottlenecks in the project. We would also like to thank Dr. Stefan Andrei for his support.
+This research is supported by Lamar University Research Enhancement Grant
 
 
 \newpage
