@@ -33,7 +33,7 @@ Email: sujing.wang@lamar.edu}}
 \maketitle
 
 \begin{abstract}
-In this paper, we introduce a new data mining framework for analyzing spatio-tempal data. It introduces polygon based change analysis techniques and automatic storytelling methodogy for spatio-temporal data. Change analysis and automatic storytelling are essential techniques in understanding larger patterns and trends in multifaceted, timeseries geographic data. We evaluate the effectiveness of our framework through case studies involving Twitter emotion  data and North American Drought data. The experimental results show that our framework can discover interesting patterns and useful information from spatial-temporal data.
+In this paper, we introduce a new data mining framework for analyzing spatio-temporal data. It introduces polygon based change analysis techniques and automatic storytelling methodogy for spatio-temporal data. Change analysis and automatic storytelling are essential techniques in understanding larger patterns and trends in multifaceted, timeseries geographic data. We evaluate the effectiveness of our framework through case studies involving Twitter emotion  data and North American Drought data. The experimental results show that our framework can discover interesting patterns and useful information from spatial-temporal data.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -45,8 +45,9 @@ change analysis, storytelling, sentiment analysis, polygon, spatio-temporal data
 % no \IEEEPARstart
 Analyzing change in spatial data is critical for many applications including developing early warning systems that monitor environmental conditions, detecting political unrest and crime monitoring.
  
-Change analysis models are essential in understanding larger patterns and trends in multifaceted, time-series geographic data. The purpose of this study is to detect spatiotemporal changes in land use within sequential (time-series) maps. Changes in land use can be categorized by the complex interaction of structural and behavioral factors associated with technological capacity, demand, and social relations that affect both environmental capacity and the demand, along with the nature of the environment of interest.
+Change analysis models are essential in understanding larger patterns and trends in multifaceted, time-series geographic data. The purpose of this study is to detect spatiotemporal changes in land use within sequential (time-series) maps. Changes in land use can be categorized by the complex interaction of structural and behavioural factors associated with technological capacity, demand, and social relations that affect both environmental capacity and the demand, along with the nature of the environment of interest.
 
+Modern technology digitizes wide sources of information constantly, with hour after hour of data being stored and most of it being unprocessed raw information. This is especially true with remote sensing networks and resultant geo-spatial imagery, coming from satellites, drone captures and flyover shots. Processed, georeferenced datasets from sources as diverse as gravity measurement a la GRACE [23] to ocean circulation mapping [24].
  
 The goal of this research project is to detect and analyze how the patterns of features change over time and space in spatiotemporal land use datasets. All polygons under consideration are closed spatial  georeferenced sets, rather than raster imagery.
 
@@ -105,89 +106,7 @@ Santos et al. [21] introduced three methods of association analysis, Distance-ba
 
 \section{Methodology}
 
-\subsection{Data Sources}
 
-There are two different datasets under consideration here. First is the Spatiotemporal Drought Datasets from the North American Portal: https://www1.ncdc.noaa.gov/pub/data/nidis/shapefiles/.
-
-The dataset was constructed using "Geotagged Twitter posts from the United States" [9] and the tool used for creating the emotion clusters was the K2 framework [7]. The raw dataset contains the timestamp, longitude, latitude and the text of each tweet, which are then processed and tokenized.
-
-According to K2, the best package for the emotion score was the Valence Aware Dictionary and Sentiment Reasoner (VADER) system [10], whose analyser parses the tokenized text and checks within a lexicon for words with strong sentiment. The final score is created from the weighted average of all sentimental words and lies within the range [-1, 1], as is required for our Aconcagua implementation.
-
-The spatial reference for the Drought shapefiles can be seen in figure 1, and for the twitter data can be seen in figure 2. 
-
-\begin{figure}[ht]
-\centerline{\includegraphics[width=\linewidth]{"Figure 1".png}}
-\caption{Spatial Reference for Drought data}
-\label{Figure 1}
-\end{figure}
-
-\begin{figure}[ht]
-\centerline{\includegraphics[width=\linewidth]{"Figure 2".png}}
-\caption{Spatial Reference for Drought data}
-\label{Figure 2}
-\end{figure}
-
-The layer definition for the data sets can be seen in tables 1 and 2.
-
-\begin{table}[]
-\caption{Layer Specification for Drought data}
-\label{Table 1}
-\centering
-\begin{tabular}{llll}
-Name    & Type    & Width & Precision \\
-long    & Real    & 24    & 15        \\
-lat     & Real    & 24    & 15        \\
-id      & Integer & 9     & 0         \\
-dnstyTh & Real    & 24    & 15        \\
-avgScor & Real    & 24    & 15        \\
-numTwts & Integer & 9     & 0         \\
-stdDev  & Real    & 24    & 15        \\
-batchNm & Integer & 9     & 0         \\
-geoData & String  & 80    & 0        
-\end{tabular}
-\end{table}
-
-\begin{table}[]
-\caption{Layer Specification for Twitter data}
-\label{Table 2}
-\centering
-\begin{tabular}{llll}
-Name        & Type    & Width & Precision \\
-FIPS\_ADMIN & String  & 4     & 0         \\
-GMI\_ADMIN  & String  & 7     & 0         \\
-ADMIN\_NAME & String  & 42    & 0         \\
-FIPS\_CNTRY & String  & 2     & 0         \\
-GMI\_CNTRY  & String  & 3     & 0         \\
-CNTRY\_NAME & String  & 40    & 0         \\
-POP\_ADMIN  & Integer & 9     & 0         \\
-TYPE\_ENG   & String  & 26    & 0         \\
-TYPE\_LOC   & String  & 50    & 0         \\
-SQKM        & Real    & 16    & 2         \\
-SQMI        & Real    & 16    & 2         \\
-COLOR\_MAP  & String  & 2     & 0        
-\end{tabular}
-\end{table}
-
-\subsection{Emotion Spatial Clusters from Twitter }
-
-We are implementing and improving upon the change analysis framework called Aconcagua [6]. The system expects an input of emotion polygons annotated with emotion assessment scores, with +1 representing a very high positive emotion and -1 representing a very high negative emotion. While this method does lead to inconsistencies in locations due to georeferencing inaccuracies, we find that the 8 ~ 10m precision [8] works well within city limits.
-
-\begin{figure}[ht]
-\centerline{\includegraphics[width=\linewidth]{"Figure 14".png}}
-\caption{The Framework Architecture}
-\label{Figure 13}
-\end{figure}
-
-
-There are several ways of using the numerous point data we have obtained from this step into an actual polygonal map: 
-
-\begin{enumerate}
-
-\item Creating closed contour lines for contour lines that lie on the boundary of the observation area.
-\item Creating a convex hull from points with similar scores.
-\end{enumerate}
-
-We elaborate on creating convex hulls in the following section.
 
 \subsection{Point Data Sources}
 
@@ -358,6 +277,90 @@ The threshold parameters need to be finely tuned so as to not exclude those poly
 
 \section{Case Study}
 
+\subsection{Data Sources}
+
+There are two different datasets under consideration here. First is the Spatiotemporal Drought Datasets from the North American Portal: https://www1.ncdc.noaa.gov/pub/data/nidis/shapefiles/.
+
+The dataset was constructed using "Geotagged Twitter posts from the United States" [9] and the tool used for creating the emotion clusters was the K2 framework [7]. The raw dataset contains the timestamp, longitude, latitude and the text of each tweet, which are then processed and tokenized.
+
+According to K2, the best package for the emotion score was the Valence Aware Dictionary and Sentiment Reasoner (VADER) system [10], whose analyser parses the tokenized text and checks within a lexicon for words with strong sentiment. The final score is created from the weighted average of all sentimental words and lies within the range [-1, 1], as is required for our Aconcagua implementation.
+
+The spatial reference for the Drought shapefiles can be seen in figure 1, and for the twitter data can be seen in figure 2. 
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=\linewidth]{"Figure 1".png}}
+\caption{Spatial Reference for Drought data}
+\label{Figure 1}
+\end{figure}
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=\linewidth]{"Figure 2".png}}
+\caption{Spatial Reference for Drought data}
+\label{Figure 2}
+\end{figure}
+
+The layer definition for the data sets can be seen in tables 1 and 2.
+
+\begin{table}[]
+\caption{Layer Specification for Drought data}
+\label{Table 1}
+\centering
+\begin{tabular}{llll}
+Name    & Type    & Width & Precision \\
+long    & Real    & 24    & 15        \\
+lat     & Real    & 24    & 15        \\
+id      & Integer & 9     & 0         \\
+dnstyTh & Real    & 24    & 15        \\
+avgScor & Real    & 24    & 15        \\
+numTwts & Integer & 9     & 0         \\
+stdDev  & Real    & 24    & 15        \\
+batchNm & Integer & 9     & 0         \\
+geoData & String  & 80    & 0        
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\caption{Layer Specification for Twitter data}
+\label{Table 2}
+\centering
+\begin{tabular}{llll}
+Name        & Type    & Width & Precision \\
+FIPS\_ADMIN & String  & 4     & 0         \\
+GMI\_ADMIN  & String  & 7     & 0         \\
+ADMIN\_NAME & String  & 42    & 0         \\
+FIPS\_CNTRY & String  & 2     & 0         \\
+GMI\_CNTRY  & String  & 3     & 0         \\
+CNTRY\_NAME & String  & 40    & 0         \\
+POP\_ADMIN  & Integer & 9     & 0         \\
+TYPE\_ENG   & String  & 26    & 0         \\
+TYPE\_LOC   & String  & 50    & 0         \\
+SQKM        & Real    & 16    & 2         \\
+SQMI        & Real    & 16    & 2         \\
+COLOR\_MAP  & String  & 2     & 0        
+\end{tabular}
+\end{table}
+
+\subsection{Emotion Spatial Clusters from Twitter }
+
+We are implementing and improving upon the change analysis framework called Aconcagua [6]. The system expects an input of emotion polygons annotated with emotion assessment scores, with +1 representing a very high positive emotion and -1 representing a very high negative emotion. While this method does lead to inconsistencies in locations due to georeferencing inaccuracies, we find that the 8 ~ 10m precision [8] works well within city limits.
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=\linewidth]{"Figure 14".png}}
+\caption{The Framework Architecture}
+\label{Figure 13}
+\end{figure}
+
+
+There are several ways of using the numerous point data we have obtained from this step into an actual polygonal map: 
+
+\begin{enumerate}
+
+\item Creating closed contour lines for contour lines that lie on the boundary of the observation area.
+\item Creating a convex hull from points with similar scores.
+\end{enumerate}
+
+We elaborate on creating convex hulls in the following section.
+
 The original polygons for the drought datasets, before our analysis was started, can be found in Figure \ref{Figure 7}
 
 \begin{figure}[ht]
@@ -443,6 +446,8 @@ This research is supported by Lamar University Research Enhancement Grant
 \bibitem {} Zhiqian Chen , Xuchao Zhang , Arnold P. Boedihardjo , Jing Dai , Chang-Tien Lu, Multimodal storytelling via generative adversarial imitation learning, Proceedings of the 26th International Joint Conference on Artificial Intelligence, August 19-25, 2017, Melbourne, Australia 
 \bibitem {} Raimundo F. Dos Santos, Jr. , Arnold Boedihardjo , Sumit Shah , Feng Chen , Chang-Tien Lu , Naren Ramakrishnan, The big data of violent events: algorithms for association analysis using spatio-temporal storytelling, Geoinformatica, v.20 n.4, p.879-921, October 2016
 \bibitem {} Deept Kumar, Naren Ramakrishnan, Richard F. Helm, and Malcolm Potts. 2008. Algorithms for Storytelling. IEEE TKDE20, 6 (2 2008), 736–751.DOI:http://dx.doi.org/10.1145/1188913.1188915
+\bibitem {} “GRACE Tellus Data,” GRACE Tellus. [Online]. Available: https://grace.jpl.nasa.gov/data/get-data. [Accessed: 26-Jul-2019].
+\bibitem {} “SARAL - eoPortal Directory - Satellite Missions.” [Online]. Available: https://directory.eoportal.org/web/eoportal/satellite-missions/s/saral. [Accessed: 26-Jul-2019].
 
 \end{thebibliography}
 \end{document}
