@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.3.26)  26 JUL 2019 21:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.3.26)  26 JUL 2019 21:50
 entering extended mode
 **"./Thesis 1 draft.tex"
 ("Thesis 1 draft.tex"
@@ -291,6 +291,9 @@ LaTeX Warning: Label `' multiply defined.
 
 LaTeX Warning: Label `' multiply defined.
 
+
+LaTeX Warning: Label `' multiply defined.
+
 )
 \openout1 = `"Thesis 1 draft.aux"'.
 
@@ -432,12 +435,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 284--285
 \OT1/ptm/m/n/10 Drought Datasets from the North Amer-i-can Por-tal:
  []
 
-<"Figure 1".png, id=24, 296.60812pt x 136.25906pt>
+[4 <./Figure 4.png> <./Figure 6.png>]
+<"Figure 1".png, id=31, 296.60812pt x 136.25906pt>
 File: "Figure 1".png Graphic file (type png)
 <use "Figure 1".png>
 Package pdftex.def Info: "Figure 1".png  used on input line 293.
 (pdftex.def)             Requested size: 252.0pt x 115.77083pt.
-[4 <./Figure 4.png> <./Figure 6.png>]
 <"Figure 2".png, id=32, 311.66437pt x 91.09032pt>
 File: "Figure 2".png Graphic file (type png)
 <use "Figure 2".png>
@@ -532,7 +535,7 @@ s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX
 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/u
 rw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "Thesis 1 draft.pdf" (8 pages, 3071494 bytes).
+Output written on "Thesis 1 draft.pdf" (8 pages, 3071777 bytes).
 PDF statistics:
  100 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
