@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.3.26)  26 JUL 2019 15:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.3.26)  26 JUL 2019 21:46
 entering extended mode
 **"./Thesis 1 draft.tex"
 ("Thesis 1 draft.tex"
@@ -288,6 +288,9 @@ LaTeX Warning: Label `' multiply defined.
 
 LaTeX Warning: Label `' multiply defined.
 
+
+LaTeX Warning: Label `' multiply defined.
+
 )
 \openout1 = `"Thesis 1 draft.aux"'.
 
@@ -370,123 +373,124 @@ G,.JBIG2,.JB2,.eps]
 
 
 ] [2]
-<"Figure 3".png, id=13, 971.12813pt x 125.71968pt>
+<"Figure 3".png, id=12, 971.12813pt x 125.71968pt>
 File: "Figure 3".png Graphic file (type png)
 <use "Figure 3".png>
-Package pdftex.def Info: "Figure 3".png  used on input line 118.
+Package pdftex.def Info: "Figure 3".png  used on input line 120.
 (pdftex.def)             Requested size: 252.0pt x 32.62303pt.
 
-Overfull \hbox (12.33246pt too wide) in paragraph at lines 131--132
+Overfull \hbox (12.33246pt too wide) in paragraph at lines 133--134
 [][][][][][][][][][][][][][][][][][][] 
  []
 
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 170.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 172.
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 179.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 181.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 179.
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 185.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 181.
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 187.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\omlptm.fd"
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 185.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 187.
 
-Overfull \hbox (30.33264pt too wide) in paragraph at lines 209--210
+Overfull \hbox (30.33264pt too wide) in paragraph at lines 211--212
 [][][][][][][][] 
  []
 
-<"Figure 4".png, id=14, 1446.90562pt x 726.46407pt>
+<"Figure 4".png, id=13, 1446.90562pt x 726.46407pt>
 File: "Figure 4".png Graphic file (type png)
 <use "Figure 4".png>
-Package pdftex.def Info: "Figure 4".png  used on input line 217.
+Package pdftex.def Info: "Figure 4".png  used on input line 219.
 (pdftex.def)             Requested size: 252.0pt x 126.52344pt.
 [3 <./Figure 3.png>]
 <"Figure 6".png, id=23, 469.4265pt x 362.664pt>
 File: "Figure 6".png Graphic file (type png)
 <use "Figure 6".png>
-Package pdftex.def Info: "Figure 6".png  used on input line 255.
+Package pdftex.def Info: "Figure 6".png  used on input line 257.
 (pdftex.def)             Requested size: 252.0pt x 194.68462pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--283
+Underfull \hbox (badness 10000) in paragraph at lines 284--285
 []\OT1/ptm/m/n/10 There are two dif-fer-ent datasets un-der con-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--283
+Underfull \hbox (badness 10000) in paragraph at lines 284--285
 \OT1/ptm/m/n/10 sid-er-a-tion here. First is the Spa-tiotem-po-ral
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--283
+Underfull \hbox (badness 10000) in paragraph at lines 284--285
 \OT1/ptm/m/n/10 Drought Datasets from the North Amer-i-can Por-tal:
  []
 
 <"Figure 1".png, id=24, 296.60812pt x 136.25906pt>
 File: "Figure 1".png Graphic file (type png)
 <use "Figure 1".png>
-Package pdftex.def Info: "Figure 1".png  used on input line 291.
+Package pdftex.def Info: "Figure 1".png  used on input line 293.
 (pdftex.def)             Requested size: 252.0pt x 115.77083pt.
-<"Figure 2".png, id=25, 311.66437pt x 91.09032pt>
+[4 <./Figure 4.png> <./Figure 6.png>]
+<"Figure 2".png, id=32, 311.66437pt x 91.09032pt>
 File: "Figure 2".png Graphic file (type png)
 <use "Figure 2".png>
-Package pdftex.def Info: "Figure 2".png  used on input line 297.
+Package pdftex.def Info: "Figure 2".png  used on input line 299.
 (pdftex.def)             Requested size: 252.0pt x 73.65347pt.
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 304.
-
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 322.
+               Default added (so using `tbp') on input line 306.
 
-[4 <./Figure 4.png> <./Figure 6.png>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 324.
+
 <"Figure 14".png, id=33, 519.44063pt x 530.73282pt>
 File: "Figure 14".png Graphic file (type png)
 <use "Figure 14".png>
-Package pdftex.def Info: "Figure 14".png  used on input line 348.
+Package pdftex.def Info: "Figure 14".png  used on input line 350.
 (pdftex.def)             Requested size: 252.0pt x 257.47798pt.
 <"Figure 7".png, id=35, 485.29305pt x 666.3294pt>
 File: "Figure 7".png Graphic file (type png)
 <use "Figure 7".png>
-Package pdftex.def Info: "Figure 7".png  used on input line 367.
+Package pdftex.def Info: "Figure 7".png  used on input line 369.
 (pdftex.def)             Requested size: 252.0pt x 346.00525pt.
 <"Figure 8".png, id=36, 614.295pt x 794.97pt>
 File: "Figure 8".png Graphic file (type png)
 <use "Figure 8".png>
-Package pdftex.def Info: "Figure 8".png  used on input line 375.
+Package pdftex.def Info: "Figure 8".png  used on input line 377.
 (pdftex.def)             Requested size: 252.0pt x 326.12177pt.
- [5 <./Figure 1.png> <./Figure 2.png> <./Figure 14.png>]
+[5 <./Figure 1.png> <./Figure 2.png> <./Figure 14.png>]
 <"Figure 9".png, id=41, 614.295pt x 794.97pt>
 File: "Figure 9".png Graphic file (type png)
 <use "Figure 9".png>
-Package pdftex.def Info: "Figure 9".png  used on input line 387.
+Package pdftex.def Info: "Figure 9".png  used on input line 389.
 (pdftex.def)             Requested size: 252.0pt x 326.12177pt.
 <"Figure 10".png, id=42, 614.295pt x 794.97pt>
 File: "Figure 10".png Graphic file (type png)
 <use "Figure 10".png>
-Package pdftex.def Info: "Figure 10".png  used on input line 393.
+Package pdftex.def Info: "Figure 10".png  used on input line 395.
 (pdftex.def)             Requested size: 252.0pt x 326.12177pt.
 <"Figure 11".png, id=43, 614.295pt x 794.97pt>
 File: "Figure 11".png Graphic file (type png)
 <use "Figure 11".png>
-Package pdftex.def Info: "Figure 11".png  used on input line 401.
+Package pdftex.def Info: "Figure 11".png  used on input line 403.
 (pdftex.def)             Requested size: 252.0pt x 326.12177pt.
  [6 <./Figure 7.png> <./Figure 8.png (PNG copy)>] [7 <./Figure 9.png (PNG copy)
 > <./Figure 10.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 449--450
+Underfull \hbox (badness 10000) in paragraph at lines 451--452
 []\OT1/ptm/m/n/8 \GRACE Tel-lus Data," GRACE Tel-lus. [On-line]. Avail-able:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 450--451
+Underfull \hbox (badness 10000) in paragraph at lines 452--453
 \OT1/ptm/m/n/8 https://directory.eoportal.org/web/eoportal/satellite-missions/s
 /saral.
  []
@@ -502,9 +506,7 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[8
-
- <./Figure 11.png (PNG copy)>] ("Thesis 1 draft.aux")
+[8 <./Figure 11.png (PNG copy)>] ("Thesis 1 draft.aux")
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -512,7 +514,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  4860 strings out of 492945
  70225 string characters out of 3135481
- 164024 words of memory out of 3000000
+ 165024 words of memory out of 3000000
  8692 multiletter control sequences out of 15000+200000
  38671 words of font info for 76 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -530,7 +532,7 @@ s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX
 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/u
 rw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "Thesis 1 draft.pdf" (8 pages, 3071112 bytes).
+Output written on "Thesis 1 draft.pdf" (8 pages, 3071494 bytes).
 PDF statistics:
  100 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
