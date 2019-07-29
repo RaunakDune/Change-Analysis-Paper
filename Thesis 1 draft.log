@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.3.26)  28 JUL 2019 19:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.3.26)  28 JUL 2019 19:55
 entering extended mode
 **"./Thesis 1 draft.tex"
 ("Thesis 1 draft.tex"
@@ -383,121 +383,121 @@ G,.JBIG2,.JB2,.eps]
 
 ] [2]
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 134.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 133.
 
 <"Figure 6".png, id=12, 469.4265pt x 362.664pt>
 File: "Figure 6".png Graphic file (type png)
 <use "Figure 6".png>
-Package pdftex.def Info: "Figure 6".png  used on input line 173.
+Package pdftex.def Info: "Figure 6".png  used on input line 172.
 (pdftex.def)             Requested size: 252.0pt x 194.68462pt.
 [3 <./Figure 6.png>]
-<"Figure 3".png, id=26, 971.12813pt x 125.71968pt>
+<"Figure 3".png, id=22, 971.12813pt x 125.71968pt>
 File: "Figure 3".png Graphic file (type png)
 <use "Figure 3".png>
-Package pdftex.def Info: "Figure 3".png  used on input line 205.
+Package pdftex.def Info: "Figure 3".png  used on input line 204.
 (pdftex.def)             Requested size: 252.0pt x 32.62303pt.
 
-Overfull \hbox (12.33246pt too wide) in paragraph at lines 218--219
+Overfull \hbox (12.33246pt too wide) in paragraph at lines 217--218
 [][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 240--241
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
 []\OT1/ptm/m/n/10 There are two dif-fer-ent datasets un-der con-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 240--241
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
 \OT1/ptm/m/n/10 sid-er-a-tion here. First is the Spa-tiotem-po-ral
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 240--241
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
 \OT1/ptm/m/n/10 Drought Datasets from the North Amer-i-can Por-tal:
  []
 
-<"Figure 1".png, id=27, 296.60812pt x 136.25906pt>
+<"Figure 1".png, id=23, 296.60812pt x 136.25906pt>
 File: "Figure 1".png Graphic file (type png)
 <use "Figure 1".png>
-Package pdftex.def Info: "Figure 1".png  used on input line 247.
+Package pdftex.def Info: "Figure 1".png  used on input line 246.
 (pdftex.def)             Requested size: 252.0pt x 115.77083pt.
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 256.
+               Default added (so using `tbp') on input line 255.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 274.
+               Default added (so using `tbp') on input line 273.
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 300.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 299.
 
 ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 300.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 299.
  [4 <./Figure 3.png> <./Figure 1.png>]
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 306.
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 305.
 
  ("C:\Program Files\MiKTeX 2.9\tex/latex/psnfss\omlptm.fd"
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 306.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 305.
 
-Overfull \hbox (30.33264pt too wide) in paragraph at lines 330--331
+Overfull \hbox (30.33264pt too wide) in paragraph at lines 329--330
 [][][][][][][][] 
  []
 
 <"Figure 4".png, id=31, 1446.90562pt x 726.46407pt>
 File: "Figure 4".png Graphic file (type png)
 <use "Figure 4".png>
-Package pdftex.def Info: "Figure 4".png  used on input line 338.
+Package pdftex.def Info: "Figure 4".png  used on input line 337.
 (pdftex.def)             Requested size: 252.0pt x 126.52344pt.
 <"Figure 2".png, id=32, 311.66437pt x 91.09032pt>
 File: "Figure 2".png Graphic file (type png)
 <use "Figure 2".png>
-Package pdftex.def Info: "Figure 2".png  used on input line 349.
+Package pdftex.def Info: "Figure 2".png  used on input line 348.
 (pdftex.def)             Requested size: 252.0pt x 73.65347pt.
 <"Figure 14".png, id=33, 519.44063pt x 530.73282pt>
 File: "Figure 14".png Graphic file (type png)
 <use "Figure 14".png>
-Package pdftex.def Info: "Figure 14".png  used on input line 359.
+Package pdftex.def Info: "Figure 14".png  used on input line 358.
 (pdftex.def)             Requested size: 252.0pt x 257.47798pt.
 [5 <./Figure 4.png> <./Figure 2.png> <./Figure 14.png>]
 <"Figure 7".png, id=39, 485.29305pt x 666.3294pt>
 File: "Figure 7".png Graphic file (type png)
 <use "Figure 7".png>
-Package pdftex.def Info: "Figure 7".png  used on input line 378.
+Package pdftex.def Info: "Figure 7".png  used on input line 377.
 (pdftex.def)             Requested size: 252.0pt x 346.00525pt.
 <"Figure 8".png, id=40, 614.295pt x 794.97pt>
 File: "Figure 8".png Graphic file (type png)
 <use "Figure 8".png>
-Package pdftex.def Info: "Figure 8".png  used on input line 386.
+Package pdftex.def Info: "Figure 8".png  used on input line 385.
 (pdftex.def)             Requested size: 252.0pt x 326.12177pt.
 <"Figure 9".png, id=41, 614.295pt x 794.97pt>
 File: "Figure 9".png Graphic file (type png)
 <use "Figure 9".png>
-Package pdftex.def Info: "Figure 9".png  used on input line 398.
+Package pdftex.def Info: "Figure 9".png  used on input line 397.
 (pdftex.def)             Requested size: 252.0pt x 326.12177pt.
 <"Figure 10".png, id=42, 614.295pt x 794.97pt>
 File: "Figure 10".png Graphic file (type png)
 <use "Figure 10".png>
-Package pdftex.def Info: "Figure 10".png  used on input line 404.
+Package pdftex.def Info: "Figure 10".png  used on input line 403.
 (pdftex.def)             Requested size: 252.0pt x 326.12177pt.
 <"Figure 11".png, id=43, 614.295pt x 794.97pt>
 File: "Figure 11".png Graphic file (type png)
 <use "Figure 11".png>
-Package pdftex.def Info: "Figure 11".png  used on input line 412.
+Package pdftex.def Info: "Figure 11".png  used on input line 411.
 (pdftex.def)             Requested size: 252.0pt x 326.12177pt.
  [6 <./Figure 7.png> <./Figure 8.png (PNG copy)>] [7 <./Figure 9.png (PNG copy)
 > <./Figure 10.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 460--461
+Underfull \hbox (badness 10000) in paragraph at lines 459--460
 []\OT1/ptm/m/n/8 \GRACE Tel-lus Data," GRACE Tel-lus. [On-line]. Avail-able:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 461--462
+Underfull \hbox (badness 10000) in paragraph at lines 460--461
 \OT1/ptm/m/n/8 https://directory.eoportal.org/web/eoportal/satellite-missions/s
 /saral.
  []
@@ -539,7 +539,7 @@ s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX
 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/u
 rw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "Thesis 1 draft.pdf" (8 pages, 3072865 bytes).
+Output written on "Thesis 1 draft.pdf" (8 pages, 3073173 bytes).
 PDF statistics:
  100 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
