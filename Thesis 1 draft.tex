@@ -110,48 +110,10 @@ Santos et al. [21] introduced three methods of association analysis, Distance-ba
 
 
 
-\subsection{Point Data Sources}
-
-Our initial approach to this problem was to store all shapefiles in a postgres database with a GIS addon and perform operations in python. We used psycopg2 and osgeo libraries to import, process and visualize maps. However, this lead to many problems with interconversions between georeferencing schemes, while converting from WKT geometry to PostGIS geography.
-
-We start with basic point data, which contains latitude/longitude, along with metadata identifying value of interest, whether that is drought level or emotion value. We insert the contents of the shapefile into a PostGreSQL database using the shp2pgsql toolkit that comes along with the PostGIS extension. The results can be seen in Figure \ref{Figure 3}.
-
-\begin{figure}[ht]
-\centerline{\includegraphics[width=\linewidth]{"Figure 3".png}}
-\caption{Twitter shapefile data inserted into Postgres db}
-\label{Figure 3}
-\end{figure}
-
-As our framework relies on using polygonal data, we cannot use this. So we begin by creating a convex hull of points and inserting it into a new table, while preserving related meta-data. Due to engine limitations, we need to be careful and insert only those convex hulls that are polygons specifically, not points or lines.
-
-\begin{enumerate}
-	\item Our query for this purpose was:
-\begin{lstlisting}
-INSERT INTO public.june1poly (avgscor, 
-numtwts, geodata, id, batchnm, geom)
-
-(SELECT d.avgscor, d.numtwts, d.geodata, 
-d.id, d.batchnm, ST_ConvexHull
-(ST_Collect(d.geom))
-FROM public."2014-06-01 " AS d
-GROUP BY (d.id, d.avgscor, d.numtwts,
-d.geodata, d.batchnm)
-
-HAVING ST_GeometryType(ST_ConvexHull
-(ST_Collect(d.geom))) = 'ST_Polygon')
-\end{lstlisting}
-	\item Then we insert the centroid of each polygon into the table using the query:
-
-\begin{lstlisting}
-UPDATE public.june1poly 
-SET centroid=ST_Centroid(geom)
-\end{lstlisting}
-
-	\item We repeat this process for every shapefile needed.
-\end{enumerate}
 
 
-Next we run our change predicates, which include:
+
+Our change predicates, which include:
 
 \begin{enumerate}
 	\item $S-Continuing (c,m)  \leftrightarrow  Agreement (c,m) \geq 0.8$
@@ -173,53 +135,7 @@ Which are defined as:
 
 \end{itemize}
 
-We will demonstrate three of these predicates here.
 
-\begin{enumerate}
-	\item To detect polygons that are increasing in size, we check for similar IDs, intersection and then the rate of overlap. We initially check whether the polygons intersect at all before querying for amount of overlap. This leads to faster processing as it discards the many combinations where the polygons don't touch each other. Our query is structured as:
-\begin{lstlisting}
-SELECT DISTINCT j2.* 
-FROM public.june1poly j1,
-public.june2poly j2 
-WHERE ST_INTERSECTS(j1.geom, j2.geom)
-AND  
-(ST_AREA(ST_INTERSECTION(j2.geom, j1))
-/st_area(j2.geom)) > .85
-\end{lstlisting}
-
-	\item To detect polygons that are shrinking  in size, we check for similar IDs, and lower rates of overlap. This can be modified based on need.
-\begin{lstlisting}
-SELECT DISTINCT j2.* 
-FROM public.june1poly j1,
-public.june2poly j2 
-WHERE ST_INTERSECTS(j1.geom, j2.geom)
-AND  
-(ST_AREA(ST_INTERSECTION(j2.geom, j1))
-/st_area(j2.geom)) < .25
-\end{lstlisting}	
-
-	\item To detect polygons that have shifted we compare their centroids and check if they have moved over 75km. Remember these polygons are created through a convex hull of points, which cannot ensure the centroid will lie within the polygon itself. Which is why we are taking a sufficiently large bounding value for the polygon.
-\begin{lstlisting}
-SELECT ST_Distance_Spheroid
-(j1.centroid, j2.centroid, 
-'SPHEROID["WGS 84",6378137,298.25]'), 
- j1.id FROM public.june1poly j1, 
- public.june2poly j2 
-WHERE j1.id = j2.id AND 
-ST_Distance_Spheroid(j1.centroid, 
-j2.centroid, 
-'SPHEROID["WGS 84",6378137,298.25]')>75000;
-\end{lstlisting}	
-
-\end{enumerate}
-
-A sample of what these generated maps look like can be found in Figure \ref{Figure 4}
-
-\begin{figure}[ht]
-\centerline{\includegraphics[width=\linewidth]{"Figure 4".png}}
-\caption{Polygons generated from Sentiment analysis}
-\label{Figure 4}
-\end{figure}
 
 \subsection{Polygonal Map Data Sources}
 
@@ -279,15 +195,53 @@ The threshold parameters need to be finely tuned so as to not exclude those poly
 
 \section{Case Study}
 
-\subsection{Data Sources}
+\subsection{Preprocessing Data Sources}
+
+Our initial approach to this problem was to store all shapefiles in a postgres database with a GIS addon and perform operations in python. We used psycopg2 and osgeo libraries to import, process and visualize maps. However, this lead to many problems with interconversions between georeferencing schemes, while converting from WKT geometry to PostGIS geography.
+
+We start with basic point data, which contains latitude/longitude, along with metadata identifying value of interest, whether that is drought level or emotion value. We insert the contents of the shapefile into a PostGreSQL database using the shp2pgsql toolkit that comes along with the PostGIS extension. The results can be seen in Figure \ref{Figure 3}.
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=\linewidth]{"Figure 3".png}}
+\caption{Twitter shapefile data inserted into Postgres db}
+\label{Figure 3}
+\end{figure}
+
+As our framework relies on using polygonal data, we cannot use this. So we begin by creating a convex hull of points and inserting it into a new table, while preserving related meta-data. Due to engine limitations, we need to be careful and insert only those convex hulls that are polygons specifically, not points or lines.
+
+\begin{enumerate}
+	\item Our query for this purpose was:
+\begin{lstlisting}
+INSERT INTO public.june1poly (avgscor, 
+numtwts, geodata, id, batchnm, geom)
+
+(SELECT d.avgscor, d.numtwts, d.geodata, 
+d.id, d.batchnm, ST_ConvexHull
+(ST_Collect(d.geom))
+FROM public."2014-06-01 " AS d
+GROUP BY (d.id, d.avgscor, d.numtwts,
+d.geodata, d.batchnm)
+
+HAVING ST_GeometryType(ST_ConvexHull
+(ST_Collect(d.geom))) = 'ST_Polygon')
+\end{lstlisting}
+	\item Then we insert the centroid of each polygon into the table using the query:
+
+\begin{lstlisting}
+UPDATE public.june1poly 
+SET centroid=ST_Centroid(geom)
+\end{lstlisting}
+
+	\item We repeat this process for every shapefile needed.
+\end{enumerate}
+
+\subsection{Drought Data Sources}
 
 There are two different datasets under consideration here. First is the Spatiotemporal Drought Datasets from the North American Portal: https://www1.ncdc.noaa.gov/pub/data/nidis/shapefiles/.
 
-The dataset was constructed using "Geotagged Twitter posts from the United States" [9] and the tool used for creating the emotion clusters was the K2 framework [7]. The raw dataset contains the timestamp, longitude, latitude and the text of each tweet, which are then processed and tokenized.
 
-According to K2, the best package for the emotion score was the Valence Aware Dictionary and Sentiment Reasoner (VADER) system [10], whose analyser parses the tokenized text and checks within a lexicon for words with strong sentiment. The final score is created from the weighted average of all sentimental words and lies within the range [-1, 1], as is required for our Aconcagua implementation.
 
-The spatial reference for the Drought shapefiles can be seen in figure 1, and for the twitter data can be seen in figure 2. 
+The spatial reference for the Drought shapefiles can be seen in figure 1.  
 
 \begin{figure}[ht]
 \centerline{\includegraphics[width=\linewidth]{"Figure 1".png}}
@@ -295,11 +249,7 @@ The spatial reference for the Drought shapefiles can be seen in figure 1, and fo
 \label{Figure 1}
 \end{figure}
 
-\begin{figure}[ht]
-\centerline{\includegraphics[width=\linewidth]{"Figure 2".png}}
-\caption{Spatial Reference for Drought data}
-\label{Figure 2}
-\end{figure}
+
 
 The layer definition for the data sets can be seen in tables 1 and 2.
 
@@ -342,7 +292,66 @@ COLOR\_MAP  & String  & 2     & 0
 \end{tabular}
 \end{table}
 
+We will demonstrate three of these predicates here.
+
+\begin{enumerate}
+	\item To detect polygons that are increasing in size, we check for similar IDs, intersection and then the rate of overlap. We initially check whether the polygons intersect at all before querying for amount of overlap. This leads to faster processing as it discards the many combinations where the polygons don't touch each other. Our query is structured as:
+\begin{lstlisting}
+SELECT DISTINCT j2.* 
+FROM public.june1poly j1,
+public.june2poly j2 
+WHERE ST_INTERSECTS(j1.geom, j2.geom)
+AND  
+(ST_AREA(ST_INTERSECTION(j2.geom, j1))
+/st_area(j2.geom)) > .85
+\end{lstlisting}
+
+	\item To detect polygons that are shrinking  in size, we check for similar IDs, and lower rates of overlap. This can be modified based on need.
+\begin{lstlisting}
+SELECT DISTINCT j2.* 
+FROM public.june1poly j1,
+public.june2poly j2 
+WHERE ST_INTERSECTS(j1.geom, j2.geom)
+AND  
+(ST_AREA(ST_INTERSECTION(j2.geom, j1))
+/st_area(j2.geom)) < .25
+\end{lstlisting}	
+
+	\item To detect polygons that have shifted we compare their centroids and check if they have moved over 75km. Remember these polygons are created through a convex hull of points, which cannot ensure the centroid will lie within the polygon itself. Which is why we are taking a sufficiently large bounding value for the polygon.
+\begin{lstlisting}
+SELECT ST_Distance_Spheroid
+(j1.centroid, j2.centroid, 
+'SPHEROID["WGS 84",6378137,298.25]'), 
+ j1.id FROM public.june1poly j1, 
+ public.june2poly j2 
+WHERE j1.id = j2.id AND 
+ST_Distance_Spheroid(j1.centroid, 
+j2.centroid, 
+'SPHEROID["WGS 84",6378137,298.25]')>75000;
+\end{lstlisting}	
+
+\end{enumerate}
+
+A sample of what these generated maps look like can be found in Figure \ref{Figure 4}
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=\linewidth]{"Figure 4".png}}
+\caption{Polygons generated from Sentiment analysis}
+\label{Figure 4}
+\end{figure}
+
 \subsection{Emotion Spatial Clusters from Twitter }
+
+The dataset was constructed using "Geotagged Twitter posts from the United States" [9] and the tool used for creating the emotion clusters was the K2 framework [7]. The raw dataset contains the timestamp, longitude, latitude and the text of each tweet, which are then processed and tokenized.
+
+The spatial reference for the twitter data can be seen in figure 2.
+\begin{figure}[ht]
+\centerline{\includegraphics[width=\linewidth]{"Figure 2".png}}
+\caption{Spatial Reference for Drought data}
+\label{Figure 2}
+\end{figure}
+
+According to K2, the best package for the emotion score was the Valence Aware Dictionary and Sentiment Reasoner (VADER) system [10], whose analyser parses the tokenized text and checks within a lexicon for words with strong sentiment. The final score is created from the weighted average of all sentimental words and lies within the range [-1, 1], as is required for our Aconcagua implementation.
 
 We are implementing and improving upon the change analysis framework called Aconcagua [6]. The system expects an input of emotion polygons annotated with emotion assessment scores, with +1 representing a very high positive emotion and -1 representing a very high negative emotion. While this method does lead to inconsistencies in locations due to georeferencing inaccuracies, we find that the 8 ~ 10m precision [8] works well within city limits.
 
