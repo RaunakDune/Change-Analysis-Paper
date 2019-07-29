@@ -51,7 +51,7 @@ Modern technology digitizes wide sources of information constantly, with hour af
 
 A common understanding is that most big data available today is either archival, media or web scrapes [25]. However, a large source of that data is actually from Geographic Information Systems (GIS), and the tools available to interpret them easily are lacking [26]. The multiplicity of APIs have standardized access and structuring, but they limit much of the meta-data associated with them. Most publicly available (i.e. non-governmental) 'big data' sources with spatial components revolve around data scraped from mobile software platforms, including twitter, Instagram, Snapchat and reviews on mapping apps [26]. An example of such insights include the Livehoods project, conducted by the Carnegie Mellon University which proposed that "the character of an urban area is defined not just by the the types of places found there, but also by the people who make the area part of their daily routine." [27] However, an unfortunate side effect of such large datasets generated and controlled by privately held corporations do raise concerns about gated access and limitations in publications. [26] The recent API changes by Google Maps, for instance, aptly show that data contet, and thus its meaning, is subject to regulation that is outside the control of researchers.
  
-The goal of this research project is to detect and analyse how the patterns of features change over time and space in spatiotemporal land use datasets. All polygons under consideration are closed spatial  georeferenced sets, rather than raster imagery.
+The goal of this research project is to detect and analyse how the patterns of features change over time and space in spatiotemporal land use datasets, while being completely data agnostic in form and function. All polygons under consideration are closed spatial  georeferenced sets, rather than raster imagery.
 
 Our approach provides a change monitoring framework which creates a change graph that captures the changes in spatial land uses clusters and a change summarization framework that creates specific change summaries based on the change graph based on the change story types. 
 
@@ -111,7 +111,7 @@ Santos et al. [21] introduced three methods of association analysis, Distance-ba
 
 \subsection{Change Predicates}
 
-We begin by creating our change predicates:
+We begin by creating our change predicates, based on the Aconcagua Framework [6]:
 
 \begin{enumerate}
 	\item $S-Continuing (c,m)  \leftrightarrow  Agreement (c,m) \geq 0.8$
