@@ -166,13 +166,7 @@ Our approach then combined several techniques:
 %\label{Figure 5}
 %\end{figure}
 
-Our original data source for the drought sets were defined by the USDA as seen in Figure \ref{Figure 6}.
 
-\begin{figure}[ht]
-\centerline{\includegraphics[width=\linewidth]{"Figure 6".png}}
-\caption{United Sates Drought Monitor Data}
-\label{Figure 6}
-\end{figure}
 
 \subsection{Change Storytelling}
 
@@ -195,6 +189,14 @@ The threshold parameters need to be finely tuned so as to not exclude those poly
 \section{Case Study}
 
 \subsection{Preprocessing Data Sources}
+
+Our original data source for the drought sets were defined by the USDA as seen in Figure \ref{Figure 6}.
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=\linewidth]{"Figure 6".png}}
+\caption{United Sates Drought Monitor Data}
+\label{Figure 6}
+\end{figure}
 
 Our initial approach to this problem was to store all shapefiles in a postgres database with a GIS addon and perform operations in python. We used psycopg2 and osgeo libraries to import, process and visualize maps. However, this lead to many problems with interconversions between georeferencing schemes, while converting from WKT geometry to PostGIS geography.
 
