@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.3.26)  29 JUL 2019 11:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.3.26)  29 JUL 2019 11:49
 entering extended mode
 **"./Thesis 1 draft.tex"
 ("Thesis 1 draft.tex"
@@ -256,9 +256,6 @@ Package: listings 2019/02/27 1.8b (Carsten Heinz)
 
 ("Thesis 1 draft.aux"
 
-LaTeX Warning: Label `Figure 13' multiply defined.
-
-
 LaTeX Warning: Label `' multiply defined.
 
 
@@ -458,9 +455,6 @@ Overfull \hbox (30.33264pt too wide) in paragraph at lines 348--349
 [][][][][][][][] 
  []
 
-
-LaTeX Warning: Reference `Figure 5' on page 5 undefined on input line 353.
-
 <"Figure 4".png, id=34, 1446.90562pt x 726.46407pt>
 File: "Figure 4".png Graphic file (type png)
 <use "Figure 4".png>
@@ -522,17 +516,14 @@ Before submitting the final camera ready copy, remember to:
 
 [8 <./Figure 11.png (PNG copy)>] ("Thesis 1 draft.aux")
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4861 strings out of 492945
- 70235 string characters out of 3135481
- 161025 words of memory out of 3000000
- 8693 multiletter control sequences out of 15000+200000
+ 4860 strings out of 492945
+ 70224 string characters out of 3135481
+ 161024 words of memory out of 3000000
+ 8692 multiletter control sequences out of 15000+200000
  38671 words of font info for 76 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,8n,32p,1296b,1585s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -549,7 +540,7 @@ s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX
 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/u
 rw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "Thesis 1 draft.pdf" (8 pages, 3073425 bytes).
+Output written on "Thesis 1 draft.pdf" (8 pages, 3073364 bytes).
 PDF statistics:
  100 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

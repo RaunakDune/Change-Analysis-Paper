@@ -63,7 +63,7 @@ Our research contributions are summarized as follows:
  \item A new measure of interestingness to aid in generating automated storytelling based the change analysis results
 \end{enumerate}
 
-The rest if the paper is structured as follows. Section 2 reviews previous literature on the subject and discusses related work.  Section 3 introduces our data mining framework. Section 4 lays out the methodology in detail. Section 5 evaluates the framework with case studies on drought datasets pre and post Harvey, pre and post California wildfires and twitter emotion polygons. Section 6 provides a conclusion and discusses potential future expansions to the framework.
+The rest if the paper is structured as follows. Section 2 reviews previous literature on the subject and discusses related work.  Section 3 introduces our data mining framework and lays out the methodology in detail. Section 4 evaluates the framework with case studies on drought datasets pre and post Harvey, pre and post California wildfires and twitter emotion polygons. Section 5 provides a conclusion and discusses potential future expansions to the framework.
 
 
 \section{Related Work}
@@ -417,7 +417,7 @@ The results from the analysing the twitter emotion maps can be seen in Figure \r
 
 \section{Conclusion and Future Work}
 
-Our experimental studies show that our change detection and analysis framework can successfully detect changes in both polygonal and point-set land use spatiotemporal datasets. 
+Our experimental studies show that our change detection and analysis framework can successfully detect changes in both polygonal and point-set land use spatiotemporal datasets. We show that our change predicates are indeed data agnostic and can work on a variety of data sources, including both polygonal and point datasets. We also see that our framework is able to handle both geographically large and small map sources without any significant georeferencing distortions being introduced. We have also defined an interestingness framework that shows promise.
  
 There is a lot work left in dealing with irregularly shaped convex polygons that appear in poorly georeferenced real world data. We believe this is because the sensitivity of the geographic operations in PostGIS or ArcGIS. We are currently working on extending our framework to deal with edge cases like those.
 
