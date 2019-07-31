@@ -111,27 +111,38 @@ Santos et al. [21] introduced three methods of association analysis, Distance-ba
 
 \subsection{Change Analysis Predicates}
 
-We begin by creating our change predicates as follows [6]:
-
-\begin{enumerate}
-	\item $S-Continuing (c,m)  \leftrightarrow  Agreement (c,m) \geq 0.8$
-	\item $B-Continuing(c,b)  \leftrightarrow  Oap (c,b) \geq 0.8$
-	\item $Growing(c,m)  \leftrightarrow  Contaiverlnment (c,m) \geq 0.9 $
-	\item $Shrinking(c,m) \leftrightarrow Growing (m,c)$
-	\item $Disappearing(c) \leftrightarrow \exists i (belong-to(c,i) $
-	\item $Novel (c) \leftrightarrow  \exists i (belong-to(c,i) and (i=1 or not(B-Continuing(c,i-1)) $
-	\item $Shifting$
-
-\end{enumerate}
-
-Which are defined as:
+We begin by creating our change predicates[6]. There are three change functions that are necessary for complete change predicates, we define them as follows:
 
 \begin{itemize}
 	\item $Agreement (c, m) = (area(c\cap m))/(area(c\cup m))$
-
-	\item $Overlap(s,f)= area(p\cap (p_1\cap …\cap p_m))/area(p)$
+	\item $Containment (c, m) = (area(c\cap m))/(area(m))$
+	\item $Overlap(s,p)= area(s\cap (p_1\cap …\cap p_m))/area(s)$
 
 \end{itemize}
+
+Here, $c$ is a spatial cluster polygon from the batch timed $t_i$ and $m$ is another spatial cluster polygon from a batch timed $t_{i+x}$, with $x$ indicating a time increase. We denote cluster intersection as $\cap$ and union as $\cup$. $Area(x)$ denotes the area covered by the polygon $x$, upto a desired level of accuracy.
+
+The change function $Agreement(c, m)$ is a measure of similarity. $Containment(c, m)$ measures whether individual polygons coincide. To measure concurrence between one polygon and a set of polygons, we use the $Overlap(s,p)$ functions. Here $p_1,...,p_m$ are spatial clusters from a batch $b$, and $s$ is a cluster from a different batch $b'$. Other basic functions include $Centroid(x)$, which indicates the Centorid of a polygon as defined as:
+
+$C_x =\frac{1}{6A} \sum_{i=0}^{N-1}(x_i+x_{i+1})(x_iy_{i+1}-x_{i+1}y_i)$
+
+$C_y =\frac{1}{6A} \sum_{i=0}^{N-1}(y_i+y_{i+1})(x_iy_{i+1}-x_{i+1}y_i)$
+
+where $x_N=x_0$ and A = the area of the polygon. We also use a simple Manhattan distance function $Distance(c, m)$ which is tuned to the required georeferenced accuracy. We use all these functions to defined these seven change predicates:
+
+\begin{enumerate}
+	\item $S-Continuing (c,m)  \leftrightarrow  Agreement (c,m) \geq 0.8$
+	\item $B-Continuing(c,b)  \leftrightarrow  Overlap (c,b) \geq 0.8$
+	\item $Growing(c,m)  \leftrightarrow  Containment (c,m) \geq 0.9 $
+	\item $Shrinking(c,m) \leftrightarrow Growing (m,c)$
+	\item $Disappearing(c) \leftrightarrow \exists i (belong-to(c,i) $
+	\item $Novel (c) \leftrightarrow  \exists i (belong-to(c,i) and (i=1 or not(B-Continuing(c,i-1)) $
+	\item $Shifting \leftrightarrow \frac{\sum_{i=1}^{N}Distance (Centroid(c), Centroid(m))}{N}$
+
+Implementations of these change predicates can be found in the Section IV.
+\end{enumerate}
+
+
 
 \subsection{Polygon Generation from Point Map Data Sources}
 We are implementing and improving upon the change analysis framework called Aconcagua [6]. The system expects an input of emotion polygons annotated with emotion assessment scores, with +1 representing a very high positive emotion and -1 representing a very high negative emotion. While this method does lead to inconsistencies in locations due to georeferencing inaccuracies, we find that the 8 ~ 10m precision [8] works well within city limits.
