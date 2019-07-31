@@ -109,9 +109,9 @@ Santos et al. [21] introduced three methods of association analysis, Distance-ba
 \section{Methodology}
 
 
-\subsection{Change Predicates}
+\subsection{Change Analysis Predicates}
 
-We begin by creating our change predicates, based on the Aconcagua Framework [6]:
+We begin by creating our change predicates as follows [6]:
 
 \begin{enumerate}
 	\item $S-Continuing (c,m)  \leftrightarrow  Agreement (c,m) \geq 0.8$
@@ -133,7 +133,7 @@ Which are defined as:
 
 \end{itemize}
 
-\subsection{Point Map Data Sources}
+\subsection{Polygon Generation from Point Map Data Sources}
 We are implementing and improving upon the change analysis framework called Aconcagua [6]. The system expects an input of emotion polygons annotated with emotion assessment scores, with +1 representing a very high positive emotion and -1 representing a very high negative emotion. While this method does lead to inconsistencies in locations due to georeferencing inaccuracies, we find that the 8 ~ 10m precision [8] works well within city limits.
 
 There are several ways of using the numerous point data we have obtained from this step into an actual polygonal map: 
@@ -146,7 +146,7 @@ There are several ways of using the numerous point data we have obtained from th
 
 We elaborate on creating convex hulls in the following section.
 
-\subsection{Polygonal Map Data Sources}
+\subsection{Change Analysis for Polygonal Map Data Sources}
 
 
 Our approach was using three primary set operations: union, intersection and erase. We calculate area of each individual polygon within each map layer. We then execute a union operation and calculate area. The union layer now contains the original areas of both layers and the areas of the overlapping polygons - we now need to query them properly to prepare for calculating the change percentage and tabulating intersection.
@@ -185,7 +185,7 @@ The framework can be found in Figure \ref{Figure 1}.
 
 
 
-\subsection{Change Storytelling}
+\subsection{Storytelling Techniques for Geospatial Data}
 
 In order to able to tell a coherent spatio-temporal data story from the change analysis output, we need to be able to pick out resultant change polygons that have seem to have significant impact on the dataset as a whole. We propose using an interestingness function to look for these.[11]
 
