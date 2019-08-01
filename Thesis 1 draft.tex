@@ -33,7 +33,7 @@ Email: sujing.wang@lamar.edu}}
 \maketitle
 
 \begin{abstract}
-In this paper, we introduce a new data mining framework for analysing spatio-temporal data. It introduces polygon based change analysis techniques and automatic storytelling methodology for spatio-temporal data. Change analysis and automatic storytelling are essential techniques in understanding larger patterns and trends in multifaceted, time-series geographic data. We evaluate the effectiveness of our framework through case studies involving Twitter emotion  data and North American Drought data. The experimental results show that our framework can discover interesting patterns and useful information from spatial-temporal data.
+Change analysis and automatic storytelling are essential techniques in understanding patterns and trends in multifaceted, time-series geospatial-temporal data. In this paper, we introduce  a new data mining framework for analyzing the chang patterns of spatio-temporal data. It includes  change analysis techniques and automatic storytelling methodology  for  spatio-temporal  data. We  evaluate the effectiveness  of our framework  through case studies involving  Twitter emotion data and North American Drought data. The experimental results show that our framework can discover interesting change patterns  and useful information  from spatial-temporal data.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -144,8 +144,8 @@ Implementations of these change predicates can be found in the Section IV.
 
 
 
-\subsection{Polygon Generation from Point Map Data Sources}
-We are implementing and improving upon the change analysis framework called Aconcagua [6]. The system expects an input of emotion polygons annotated with emotion assessment scores, with +1 representing a very high positive emotion and -1 representing a very high negative emotion. While this method does lead to inconsistencies in locations due to georeferencing inaccuracies, we find that the 8 ~ 10m precision [8] works well within city limits.
+\subsection{Polygon Generation from Point Data Sources}
+We improve upon the change analysis framework called Aconcagua [6]. The system expects an input of emotion polygons annotated with emotion assessment scores, with +1 representing a very high positive emotion and -1 representing a very high negative emotion. While this method does lead to inconsistencies in locations due to georeferencing inaccuracies, we find that the 8 ~ 10m precision [8] works well within city limits.
 
 There are several ways of using the numerous point data we have obtained from this step into an actual polygonal map: 
 
@@ -160,7 +160,7 @@ We elaborate on creating convex hulls in the following section.
 \subsection{Change Analysis for Polygonal Map Data Sources}
 
 
-Our approach was using three primary set operations: union, intersection and erase. We calculate area of each individual polygon within each map layer. We then execute a union operation and calculate area. The union layer now contains the original areas of both layers and the areas of the overlapping polygons - we now need to query them properly to prepare for calculating the change percentage and tabulating intersection.
+Our approach uses three primary set operations: union, intersection and erase. We calculate the area of each individual polygon within each map layer. We then execute a union operation and calculate area. The union layer now contains the original areas of both layers and the areas of the overlapping polygons - we now need to query them properly to prepare for calculating the change percentage and tabulating intersection.
 
 To outline the polygon, we examine several different methods:
 \begin{enumerate}
@@ -198,12 +198,12 @@ The framework can be found in Figure \ref{Figure 1}.
 
 \subsection{Storytelling Techniques for Geospatial Data}
 
-In order to able to tell a coherent spatio-temporal data story from the change analysis output, we need to be able to pick out resultant change polygons that have seem to have significant impact on the dataset as a whole. We propose using an interestingness function to look for these.[11]
+In order to tell a coherent spatio-temporal data story from the change analysis output, we propose using an interestingness function for this task.[11]
 
-We choose a set of change polygons SCP. These not only contains those objects but also their associated characteristics. For example, a SCP could contain a set of spatial clusters with polygon, their average drought score, total area, centroid coordinates and other summaries for each spatial cluster. We define the function as:
+We choose a set of change polygons SCP. It not only contains those polygons but also their associated characteristics. For example, a SCP could contain a set of spatial clusters represented by polygons, their average drought score, total area of each polygon, centroid coordinates of each polygon and other summaries for each spatial cluster (polyogn). We define the function as:
 \[f:SCP\ \rightarrow\ \left[0\right.,\left.\infty\right)\]
 
-We define a threshold $\omega$, which ensures that a narrative will only be generated an an object $p \in SCP$ such that $f(p) \ge \omega$. Example parameters for $\omega$ include  
+We define a threshold $\omega$, which ensures that a narrative will only be generated an object $p \in SCP$ such that $f(p) \ge \omega$. Sample parameters for $\omega$ include  
 
 \begin{itemize}
 \item $Max\left(\frac{area\left(Polygon\ P_i\right)}{\sum_{1}^{i}area\left(Polygon\ P_i\right)}\right)$
@@ -211,7 +211,7 @@ We define a threshold $\omega$, which ensures that a narrative will only be gene
 \item Largest shift in polygon centroids
 \end{itemize}
 
-The threshold parameters need to be finely tuned so as to not exclude those polygons who fall through exceptions. Once we have a suitable selection of polygons and have chose a threshold value, we can create a summary narrative. 
+The threshold parameters need to be finely tuned so as to not exclude those polygons who fall through exceptions. Once we have a suitable selection of polygons and chose a threshold value, we can create a summary narrative based on that. 
 
 
 \section{Case Study}
