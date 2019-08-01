@@ -229,6 +229,58 @@ The layer specification for the Drought shapefiles is summarized in Table 1. the
 The Twitter data contains the timestamp, latitude, longitude and the text of each tweet, which are then processed and tokenized. The spatial reference can be seen in Table 2.
 
 \begin{figure}[ht]
+\centerline{\includegraphics[width=\linewidth]{"Figure 1".png}}
+\caption{Spatial Reference for Drought data}
+\label{Figure 4}
+\end{figure}
+
+
+\begin{table}[]
+\caption{Layer Specification for Drought data}
+\label{Table 1}
+\centering
+\begin{tabular}{llll}
+Name    & Type    & Width & Precision \\
+long    & Real    & 24    & 15        \\
+lat     & Real    & 24    & 15        \\
+id      & Integer & 9     & 0         \\
+dnstyTh & Real    & 24    & 15        \\
+avgScor & Real    & 24    & 15        \\
+numTwts & Integer & 9     & 0         \\
+stdDev  & Real    & 24    & 15        \\
+batchNm & Integer & 9     & 0         \\
+geoData & String  & 80    & 0        
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\caption{Layer Specification for Twitter data}
+\label{Table 2}
+\centering
+\begin{tabular}{llll}
+Name        & Type    & Width & Precision \\
+FIPS\_ADMIN & String  & 4     & 0         \\
+GMI\_ADMIN  & String  & 7     & 0         \\
+ADMIN\_NAME & String  & 42    & 0         \\
+FIPS\_CNTRY & String  & 2     & 0         \\
+GMI\_CNTRY  & String  & 3     & 0         \\
+CNTRY\_NAME & String  & 40    & 0         \\
+POP\_ADMIN  & Integer & 9     & 0         \\
+TYPE\_ENG   & String  & 26    & 0         \\
+TYPE\_LOC   & String  & 50    & 0         \\
+SQKM        & Real    & 16    & 2         \\
+SQMI        & Real    & 16    & 2         \\
+COLOR\_MAP  & String  & 2     & 0        
+\end{tabular}
+\end{table}
+
+\begin{figure}[ht]
+\centerline{\includegraphics[width=\linewidth]{"Figure 2".png}}
+\caption{Spatial Reference for Drought data}
+\label{Figure 6}
+\end{figure}
+
+\begin{figure}[ht]
 \centerline{\includegraphics[width=\linewidth]{"Figure 6".png}}
 \caption{United Sates Drought Monitor Data}
 \label{Figure 2}
@@ -275,62 +327,7 @@ SET centroid=ST_Centroid(geom)
 
 \subsection{Drought Data Sources}
 
-There are two different datasets under consideration here. First is the Spatiotemporal Drought Datasets from the North American Portal: https://www1.ncdc.noaa.gov/pub/data/nidis/shapefiles/.
-
-
-
-The spatial reference for the Drought shapefiles can be seen in figure 4.  
-
-\begin{figure}[ht]
-\centerline{\includegraphics[width=\linewidth]{"Figure 1".png}}
-\caption{Spatial Reference for Drought data}
-\label{Figure 4}
-\end{figure}
-
-
-
-The layer definition for the data sets can be seen in tables 1 and 2.
-
-\begin{table}[]
-\caption{Layer Specification for Drought data}
-\label{Table 1}
-\centering
-\begin{tabular}{llll}
-Name    & Type    & Width & Precision \\
-long    & Real    & 24    & 15        \\
-lat     & Real    & 24    & 15        \\
-id      & Integer & 9     & 0         \\
-dnstyTh & Real    & 24    & 15        \\
-avgScor & Real    & 24    & 15        \\
-numTwts & Integer & 9     & 0         \\
-stdDev  & Real    & 24    & 15        \\
-batchNm & Integer & 9     & 0         \\
-geoData & String  & 80    & 0        
-\end{tabular}
-\end{table}
-
-\begin{table}[]
-\caption{Layer Specification for Twitter data}
-\label{Table 2}
-\centering
-\begin{tabular}{llll}
-Name        & Type    & Width & Precision \\
-FIPS\_ADMIN & String  & 4     & 0         \\
-GMI\_ADMIN  & String  & 7     & 0         \\
-ADMIN\_NAME & String  & 42    & 0         \\
-FIPS\_CNTRY & String  & 2     & 0         \\
-GMI\_CNTRY  & String  & 3     & 0         \\
-CNTRY\_NAME & String  & 40    & 0         \\
-POP\_ADMIN  & Integer & 9     & 0         \\
-TYPE\_ENG   & String  & 26    & 0         \\
-TYPE\_LOC   & String  & 50    & 0         \\
-SQKM        & Real    & 16    & 2         \\
-SQMI        & Real    & 16    & 2         \\
-COLOR\_MAP  & String  & 2     & 0        
-\end{tabular}
-\end{table}
-
-We will demonstrate three of these predicates here.
+Here we demonstrate three change predicates as discussed in SEction III..
 
 \begin{enumerate}
 	\item To detect polygons that are increasing in size, we check for similar IDs, intersection and then the rate of overlap. We initially check whether the polygons intersect at all before querying for amount of overlap. This leads to faster processing as it discards the many combinations where the polygons don't touch each other. Our query is structured as:
@@ -370,7 +367,7 @@ j2.centroid,
 
 \end{enumerate}
 
-A sample of what these generated maps look like can be found in Figure \ref{Figure 5}
+Figure \ref{Figure 5} shows the generated maps based on the change predicate.
 
 \begin{figure}[ht]
 \centerline{\includegraphics[width=\linewidth]{"Figure 4".png}}
@@ -380,20 +377,16 @@ A sample of what these generated maps look like can be found in Figure \ref{Figu
 
 \subsection{Emotion Spatial Clusters from Twitter }
 
-The dataset was constructed using "Geotagged Twitter posts from the United States" [9] and the tool used for creating the emotion clusters was the K2 framework [7]. The raw dataset contains the timestamp, longitude, latitude and the text of each tweet, which are then processed and tokenized.
+The tool used for creating the emotion clusters was the K2 framework [7].
 
 The spatial reference for the twitter data can be seen in figure 62.
-\begin{figure}[ht]
-\centerline{\includegraphics[width=\linewidth]{"Figure 2".png}}
-\caption{Spatial Reference for Drought data}
-\label{Figure 6}
-\end{figure}
+
 
 According to K2, the best package for the emotion score was the Valence Aware Dictionary and Sentiment Reasoner (VADER) system [10], whose analyser parses the tokenized text and checks within a lexicon for words with strong sentiment. The final score is created from the weighted average of all sentimental words and lies within the range [-1, 1], as is required for our Aconcagua implementation.
 
 
 
-The original polygons for the drought datasets, before our analysis was started, can be found in Figure \ref{Figure 7}
+The original polygons for the drought datasets, before our analysis is in Figure \ref{Figure 7}
 
 \begin{figure}[ht]
 \centerline{\includegraphics[width=\linewidth]{"Figure 7".png}}
@@ -401,7 +394,7 @@ The original polygons for the drought datasets, before our analysis was started,
 \label{Figure 7}
 \end{figure}
 
-We focus on two specific regions to highlight. First, figure \ref{Figure 8} shows the regions where areas of drought grew in California following the wildfires in 2017. We noticed patterns of increasing drought surrounding the regions that were burnt down, with especially large period upstream from rivers. Our procedure worked well dealing with the large number of small polygons in the region that occur due to isolated wildfires. However, we had difficult dealing with convex polygons that intersected with each other multiple times.
+We focus on two specific regions for this case study. First, figure \ref{Figure 8} shows the regions where areas of drought grew in California after the wildfires in 2017. We noticed patterns of increasing drought surrounding the regions that were burnt down, with especially large period upstream from rivers. Our procedure works well dealing with the large number of small polygons in the region that occur due to isolated wildfires. However, we had difficult dealing with convex polygons that intersected with each other multiple times.
 
 \begin{figure}[ht]
 \centerline{\includegraphics[width=\linewidth]{"Figure 8".png}}
@@ -409,9 +402,9 @@ We focus on two specific regions to highlight. First, figure \ref{Figure 8} show
 \label{Figure 8}
 \end{figure}
 
-Next, we inspect the region in Texas after Hurricane Harvey. Figure \ref{Figure 9} shows the regions where drought affected regions increased following the disaster and Figure \ref{Figure 10} shows the regions where they decreased.
+Next, we inspect the region in Texas after Hurricane Harvey. Figure \ref{Figure 9} shows the regions where drought affected regions increased following the disaster and Figure \ref{Figure 10} shows the regions decreased.
 
-We observe that drought affected regions decrease at a high rate around the South Eastern Texas and Louisiana region, which follows common logic. However, there is no clear relation between drought prone regions and river basins close to the coast. We believe that high amount industrial regions create a micro climate that affects the water content entering the soil.
+We observe that drought affected regions decrease at a high rate around the South Eastern Texas and Louisiana region. However, there is no clear relation between drought prone regions and river basins close to the coast. We believe that high amount industrial regions create a micro climate that affects the water content entering the soil.
 
 According to our results, the drought prone regions increased substantially around the West Texas region both during and after Hurricane Harvey, with a larger increase as winter came around. However, this could be an artefact of the fact that the original dataset had very few polygons in the Texas area, which leads to broader conclusions. Our technique is still severely dependent on the resolution of the input imagery.
 
@@ -427,7 +420,7 @@ According to our results, the drought prone regions increased substantially arou
 \label{Figure 10}
 \end{figure}
 
-The results from the analysing the twitter emotion maps can be seen in Figure \ref{Figure 11}.
+The results from the analyzing the twitter emotion maps can be seen in Figure \ref{Figure 11}.
 
 \begin{figure}[ht]
 \centerline{\includegraphics[width=\linewidth]{"Figure 11".png}}
@@ -437,17 +430,13 @@ The results from the analysing the twitter emotion maps can be seen in Figure \r
 
 \section{Conclusion and Future Work}
 
-Our experimental studies show that our change detection and analysis framework can successfully detect changes in both polygonal and point-set land use spatiotemporal datasets. We show that our change predicates are indeed data agnostic and can work on a variety of data sources, including both polygonal and point datasets. We also see that our framework is able to handle both geographically large and small map sources without any significant georeferencing distortions being introduced. We have also defined an interestingness framework that shows promise.
+Our experimental studies show that our change detection and analysis framework can successfully detect changes in spatiotemporal datasets. Our change predicatescan work on a variety of data sources, including both polygonal and point datasets. Our framework is able to handle both geographically large and small map sources without any significant georeferencing distortions being introduced.
  
-There is a lot work left in dealing with irregularly shaped convex polygons that appear in poorly georeferenced real world data. We believe this is because the sensitivity of the geographic operations in PostGIS or ArcGIS. We are currently working on extending our framework to deal with edge cases like those.
-
-We are also looking towards consolidating and extending some of the change predicates, especially trying to tune them for fine changes.
-
-We will work on the creating change summaries and stories, as detailed in Section IV,  from the data in future.
+There is a lot work left in dealing with irregularly shaped convex polygons that appear in poorly georeferenced real world data. We believe this is because the sensitivity of the geographic operations in PostGIS or ArcGIS. We are currently working on extending our framework to deal with similar cases.
 
 \section*{Acknowledgment}
 
-This research is supported by Lamar University Research Enhancement Grant
+This research is supported by Lamar University Research Enhancement Grant.
 
 
 \newpage
