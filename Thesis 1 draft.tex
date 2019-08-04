@@ -23,13 +23,6 @@ Email: rsarbajna@lamar.edu}
 Lamar University\\
 Beaumont, Texas, USA\\
 Email: sujing.wang@lamar.edu}}
-%\author{\IEEEauthorblockN{Raunak Sarbajna\IEEEauthorrefmark{1},
-%Sujing Wang\IEEEauthorrefmark{2}}
-%\IEEEauthorblockA{Department of Computer Science,
-%Lamar University\\
-%Beaumont\\
-%Email: \IEEEauthorrefmark{1}rsarbajna@lamar.edu,
-%\IEEEauthorrefmark{2}swang3@lamar.edu}}
 \maketitle
 
 \begin{abstract}
@@ -323,7 +316,19 @@ SET centroid=ST_Centroid(geom)
 
 \subsection{Drought Data Sources}
 
-Here we demonstrate three change predicates as discussed in SEction III..
+Here we demonstrate three change predicates as discussed in Section III.
+
+\begin{figure}[h]
+\centerline{\includegraphics[width=\linewidth]{"Figure 9".png}}
+\caption{Decrease in Drought Affected Regions in Texas following Hurricane Harvey}
+\label{Figure 9}
+\end{figure}
+
+\begin{figure}[h]
+\centerline{\includegraphics[width=\linewidth]{"Figure 10".png}}
+\caption{Increase in Drought Affected Regions in Texas following Hurricane Harvey}
+\label{Figure 10}
+\end{figure}
 
 \begin{enumerate}
 	\item To detect polygons that are increasing in size, we check for similar IDs, intersection and then the rate of overlap. We initially check whether the polygons intersect at all before querying for amount of overlap. This leads to faster processing as it discards the many combinations where the polygons don't touch each other. Our query is structured as:
@@ -404,21 +409,10 @@ We observe that drought affected regions decrease at a high rate around the Sout
 
 According to our results, the drought prone regions increased substantially around the West Texas region both during and after Hurricane Harvey, with a larger increase as winter came around. However, this could be an artefact of the fact that the original dataset had very few polygons in the Texas area, which leads to broader conclusions. Our technique is still severely dependent on the resolution of the input imagery.
 
-\begin{figure}[ht]
-\centerline{\includegraphics[width=\linewidth]{"Figure 9".png}}
-\caption{Decrease in Drought Affected Regions in Texas following Hurricane Harvey}
-\label{Figure 9}
-\end{figure}
-
-\begin{figure}[ht]
-\centerline{\includegraphics[width=\linewidth]{"Figure 10".png}}
-\caption{Increase in Drought Affected Regions in Texas following Hurricane Harvey}
-\label{Figure 10}
-\end{figure}
 
 The results from the analyzing the twitter emotion maps can be seen in Figure \ref{Figure 11}.
 
-\begin{figure}[ht]
+\begin{figure}[h]
 \centerline{\includegraphics[width=\linewidth]{"Figure 11".png}}
 \caption{Change in emotion Polygons in New York State}
 \label{Figure 11}
